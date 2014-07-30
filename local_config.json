@@ -1,0 +1,18 @@
+{
+	"general": {},
+	"ios": {
+		"profiles": {
+			"DEFAULT": {}
+		},
+		"simulatorsdk": "8.0",
+		"simulatorfamily": "iphone",
+		"simulatorvariant": "default"
+	},
+	"android": {
+		"profiles": {
+			"DEFAULT": {}
+		},
+		"device": "0149C6F40901C010",
+		"sdk": "C:/adt/sdk/"
+	}
+}
