@@ -14,5 +14,15 @@
 		}
 	},
 	"modules": {
+		"icons": {
+			"version": "2.1",
+			"config": {
+				"android": {
+					"36": "logo.png",
+					"48": "logo.png",
+					"72": "logo.png"
+				}
+			}
+		}
 	}
 }

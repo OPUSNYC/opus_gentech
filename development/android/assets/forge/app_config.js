@@ -1,6 +1,6 @@
 window.forge = {}; window.forge.config = {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "3c4b10f8ebb0cb8ae8085e086fd3f6b0ce60be5a", 
+    "config_hash": "9546a19fd156ba6a4190fdac71284f9389a5a755", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -29,10 +29,23 @@ window.forge = {}; window.forge.config = {
         }
     }, 
     "description": "An empty app created by default", 
-    "modules": {}, 
-    "name": "opus", 
+    "modules": {
+        "icons": {
+            "config": {
+                "android": {
+                    "36": "logo.png", 
+                    "48": "logo.png", 
+                    "72": "logo.png"
+                }
+            }, 
+            "version": "2.1"
+        }
+    }, 
+    "name": "OPUS", 
     "platform_version": "v2.1.8", 
     "trigger_domain": "https://trigger.io", 
     "uuid": "7010da4a17f811e487281231392b77b0", 
     "version": "0.1"
-}; window.forge.module_mapping = {};
+}; window.forge.module_mapping = {
+    "icons": "icons"
+};
