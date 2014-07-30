@@ -1,6 +1,6 @@
 {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "c04eab9bffff2fe998887aa54e56f6be334c0898", 
+    "config_hash": "adae7b83508953b40e6e6874683792e74c9085e4", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -33,9 +33,9 @@
         "icons": {
             "config": {
                 "android": {
-                    "36": "logo strong.png", 
-                    "48": "logo strong.png", 
-                    "72": "logo strong.png"
+                    "36": "images/logo strong.png", 
+                    "48": "images/logo strong.png", 
+                    "72": "images/logo strong.png"
                 }
             }, 
             "version": "2.1"
