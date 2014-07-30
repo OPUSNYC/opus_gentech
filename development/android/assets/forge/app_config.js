@@ -1,6 +1,6 @@
 window.forge = {}; window.forge.config = {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "9546a19fd156ba6a4190fdac71284f9389a5a755", 
+    "config_hash": "c04eab9bffff2fe998887aa54e56f6be334c0898", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -33,9 +33,9 @@ window.forge = {}; window.forge.config = {
         "icons": {
             "config": {
                 "android": {
-                    "36": "logo.png", 
-                    "48": "logo.png", 
-                    "72": "logo.png"
+                    "36": "logo strong.png", 
+                    "48": "logo strong.png", 
+                    "72": "logo strong.png"
                 }
             }, 
             "version": "2.1"
