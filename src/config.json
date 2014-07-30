@@ -18,9 +18,9 @@
 			"version": "2.1",
 			"config": {
 				"android": {
-					"36": "logo strong.png",
-					"48": "logo strong.png",
-					"72": "logo strong.png"
+					"36": "images/logo strong.png",
+					"48": "images/logo strong.png",
+					"72": "images/logo strong.png"
 				}
 			}
 		}
