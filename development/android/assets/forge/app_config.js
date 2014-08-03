@@ -1,6 +1,6 @@
 window.forge = {}; window.forge.config = {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "adae7b83508953b40e6e6874683792e74c9085e4", 
+    "config_hash": "b0b33ad2c9a8f02e99570c2396f092d1c3dc92cb", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -30,6 +30,16 @@ window.forge = {}; window.forge.config = {
     }, 
     "description": "An empty app created by default", 
     "modules": {
+        "display": {
+            "config": {
+                "orientations": {
+                    "android": "any", 
+                    "ipad": "any", 
+                    "iphone": "any"
+                }
+            }, 
+            "version": "2.3"
+        }, 
         "icons": {
             "config": {
                 "android": {
@@ -39,6 +49,15 @@ window.forge = {}; window.forge.config = {
                 }
             }, 
             "version": "2.1"
+        }, 
+        "launchimage": {
+            "config": {
+                "android": "src/images/loading screen.png", 
+                "android-landscape": "src/images/lslandscape.png", 
+                "background-color": "#000000", 
+                "background-size": "cover"
+            }, 
+            "version": "2.4"
         }
     }, 
     "name": "OPUS", 
@@ -47,5 +66,7 @@ window.forge = {}; window.forge.config = {
     "uuid": "7010da4a17f811e487281231392b77b0", 
     "version": "0.1"
 }; window.forge.module_mapping = {
-    "icons": "icons"
+    "display": "display", 
+    "icons": "icons", 
+    "launchimage": "launchimage"
 };

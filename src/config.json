@@ -23,6 +23,26 @@
 					"72": "images/logo strong.png"
 				}
 			}
+		},
+		"display": {
+			"version": "2.3",
+			"config": {
+				"orientations": {
+					"ipad": "any",
+					"android": "portrait",
+					"iphone": "any"
+				}
+			}
+		},
+		"launchimage": {
+			"version": "2.4",
+			"config": {
+				"background-size": "cover",
+				"android": "images/loading screen.png",
+				"android-landscape": "images/lslandscape.png",
+				"background-color": "#000000"
+			},
+			"disabled": true
 		}
 	}
 }
