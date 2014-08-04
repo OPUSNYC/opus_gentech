@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src='../forge/app_config.js'></script><script src='../forge/all.js'></script>
+		<script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+		<meta charset="utf-8">
+		<script src="js/jquery-2.0.2.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 20px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+
+			.jumbotron {
+				margin: 60px 0;
+				text-align: center;
+			}
+			.jumbotron h1 {
+				font-size: 50px;
+				line-height: 1;
+			}
+
+			p {
+				font-size: 1.2em;
+			}
+		</style>
+		<script src="js/tablefilter_all_min.js"> </script>
+		<link href="css/filtergrid.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-static-top navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="#">OPUS</a>
+				</div>
+			</div>
+		</div>
+		<div class="container-narrow">
+			<div class="jumbotron">
+				<h1>Jobs</h1>
+			</div>
+			<hr>
+			<div class="row-fluid">
+				<div class="span12">
+
+				<p> Having trouble finding something that suits you? Try the <a href="#"> advanced search </a>! </p> 
+
+<table id="table2" cellpadding="0" cellspacing="0" class="TF">
+    <tbody>
+		
+	<tr>
+        <th>World Regions</th>
+        <th>Population ( 2007 Est.)</th>
+        <th>Population % of World</th>
+        <th>% Population ( Penetration )</th>
+        <th>Usage % of World</th>
+    </tr>
+    <tr>
+        <td>Africa</td>
+        <td>933,448,292</td>
+        <td>14.2 %</td>
+        <td>3.5 %</td>
+        <td>3.0 %</td>
+    </tr>
+    <tr>
+        <td>Asia</td>
+        <td>3,712,527,624</td>
+        <td>56.5 %</td>
+        <td>10.5 %</td>
+        <td>35.6 %</td>
+    </tr>
+    <tr>
+        <td>Europe</td>
+        <td>809,624,686</td>
+        <td>12.3 %</td>
+        <td>38.6 %</td>
+        <td>28.6 %</td>
+    </tr>
+    <tr>
+        <td>Middle East</td>
+        <td>193,452,727</td>
+        <td>2.9 %</td>
+        <td>10.0 %</td>
+        <td>1.8 %</td>
+    </tr>
+    <tr>
+        <td>North America</td>
+        <td>334,538,018</td>
+        <td>5.1 %</td>
+        <td>69.4 %</td>
+        <td>21.2 %</td>
+    </tr>
+    <tr>
+        <td>Latin America / Caribbean</td>
+        <td>556,606,627</td>
+        <td>8.5 %</td>
+        <td>16.0 %</td>
+        <td>8.1 %</td>
+    </tr>
+    <tr>
+        <td>Oceania / Australia</td>
+        <td>34,468,443</td>
+        <td>0.5 %</td>
+        <td>53.5 %</td>
+        <td>1.7 %</td>
+    </tr>
+</tbody></table>
+				
+<!--- Script for filter----> 
+<script type="text/javascript">
+//<![CDATA[ 
+
+var table2_Props = {
+    col_0: "select",
+    col_4: "none",
+    display_all_text: " [ Show all ] ",
+    sort_select: true
+};
+var tf2 = setFilterGrid("table2", table2_Props);
+//]]>  
+</script>
+
+<!-----Ends here---->
+					<div align="center">
+					<a href="joblist.html"> 
+					<img src="images/location_icon.png">
+					</a> 
+					</div>
+			</div>
+		</div> 
+		</div>
+	</body>
+</html>

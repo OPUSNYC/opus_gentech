@@ -1,6 +1,6 @@
 window.forge = {}; window.forge.config = {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "b0b33ad2c9a8f02e99570c2396f092d1c3dc92cb", 
+    "config_hash": "8b32ecd7131b051464476391ba74cd47985047cb", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -33,7 +33,7 @@ window.forge = {}; window.forge.config = {
         "display": {
             "config": {
                 "orientations": {
-                    "android": "any", 
+                    "android": "portrait", 
                     "ipad": "any", 
                     "iphone": "any"
                 }
@@ -57,6 +57,7 @@ window.forge = {}; window.forge.config = {
                 "background-color": "#000000", 
                 "background-size": "cover"
             }, 
+            "disabled": true, 
             "version": "2.4"
         }
     }, 
@@ -67,6 +68,5 @@ window.forge = {}; window.forge.config = {
     "version": "0.1"
 }; window.forge.module_mapping = {
     "display": "display", 
-    "icons": "icons", 
-    "launchimage": "launchimage"
+    "icons": "icons"
 };
