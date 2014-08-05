@@ -1,6 +1,6 @@
 {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "b0b33ad2c9a8f02e99570c2396f092d1c3dc92cb", 
+    "config_hash": "8b32ecd7131b051464476391ba74cd47985047cb", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -33,7 +33,7 @@
         "display": {
             "config": {
                 "orientations": {
-                    "android": "any", 
+                    "android": "portrait", 
                     "ipad": "any", 
                     "iphone": "any"
                 }
@@ -57,6 +57,7 @@
                 "background-color": "#000000", 
                 "background-size": "cover"
             }, 
+            "disabled": true, 
             "version": "2.4"
         }
     }, 
