@@ -1,4 +1,4 @@
-forge.logging.info("Samson is awesome");
+forge.logging.info("Jun Woo likes to put ketchup and mustard on himself");
 <!--  Activate Cloaking Device
 //***************************************************************************
 //
