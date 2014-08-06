@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+
+      <script type="text/javascript">
+      function addRow(content,content1,content2)
+         {
+                  if (!document.getElementsByTagName) return;
+                  tabBody=document.getElementsByTagName("tbody").item(0);
+                  row=document.createElement("tr");
+
+                  cell1 = document.createElement("td");
+                  cell2 = document.createElement("td");
+                  cell3 = document.createElement("td");
+
+                  textnode1=document.createTextNode(content);
+                  textnode2=document.createTextNode(content1);
+                  textnode3=document.createTextNode(content2);
+
+                  cell1.appendChild(textnode1);
+                  cell2.appendChild(textnode2);
+                  cell3.appendChild(textnode3);
+
+                  row.appendChild(cell1);
+                  row.appendChild(cell2);
+                  row.appendChild(cell3);
+
+                  tabBody.appendChild(row);
+         }
+      </script>
+
+   </head>
+
+   <body>
+
+      <table border='1'>
+         <tbody>
+            <tr><td>22</td><td>333</td><td>4444</td></tr>
+            <tr><td>22</td><td>333</td><td>4444</td></tr>
+         </tbody>
+      </table>
+
+   <button onClick='addRow("JOB","TYPE","NAME");'> Add Row </button>
+   
+   </body>
+</html>

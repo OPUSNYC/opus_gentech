@@ -1,6 +1,4 @@
-forge.logging.info("Add JavaScript to js/main.js!");
-<<<<<<< HEAD
-=======
+forge.logging.info("Samson is awesome");
 <!--  Activate Cloaking Device
 //***************************************************************************
 //
@@ -45,4 +43,4 @@ var testObject = new TestObject();
 testObject.save({foo: "bar"}).then(function(object) {
   alert("yay! it worked");
 });
->>>>>>> fe88060fbcd3cda7311f198ea01d782bac970c78
+
