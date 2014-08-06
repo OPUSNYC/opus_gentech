@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
 		<meta charset="utf-8">
-		<script src="js/jquery-2.0.2.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/main.js"></script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
+		<script type='text/javascript' src='js/parse.js'></script>
+		<script type='text/javascript' src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<style type="text/css">
 			.container-narrow {
@@ -45,6 +45,14 @@
 				vertical-align: middle;
 			}
 		</style>
+		
+		<script> forge.topbar.addButton({
+  text: "Edit profile",
+  position: "right"
+}, function () {
+  window.location= "editprofile.html";
+});
+</script>
 	</head>
 	<body>
 		<div class="container-narrow">
@@ -80,23 +88,13 @@ Cu vim tation petentium. Ut doctus timeam ius. Et agam choro phaedrum qui. Alter
 				</div>
 				</div>
 			</body>
-			<div class="aboutmetext">
-			
 			
 			<div align="center">
-					<a href="editprofile.html" display="inline">
-					<input type="submit" value="Edit your profile" class="btn">
-					</a>
-					
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					
 					<a href="jobs.html" display="inline">
 					<input type="submit" value="Search for jobs" class="btn">
 					</a> 
-					</div>
-
+					
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<br>
 					
 					<a href="jobAdd.html" display="inline">
 					<input type="submit" value="Add Jobs" class="btn">

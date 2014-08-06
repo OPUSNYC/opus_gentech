@@ -4,7 +4,7 @@
 	"author": "shin.junwoo97@gmail.com",
 	"version": "0.1",
 	"platform_version": "v2.1.8",
-	"description": "An empty app created by default",
+	"description": "The app for students",
 	"core": {
 		"general": {
 			"logging": {
@@ -42,6 +42,12 @@
 				"android-landscape": "images/lslandscape.png",
 				"background-color": "#000000"
 			}
+		},
+		"ui": {
+			"version": "2.1"
+		},
+		"topbar": {
+			"version": "2.4"
 		}
 	}
 }
