@@ -1,4 +1,4 @@
-forge.logging.info("Add JavaScript to js/main.js!");
+forge.logging.info("Samson is awesome");
 <!--  Activate Cloaking Device
 //***************************************************************************
 //
