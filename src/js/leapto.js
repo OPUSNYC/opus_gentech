@@ -1,4 +1,3 @@
-forge.logging.info("Add JavaScript to js/main.js!");
 <!--  Activate Cloaking Device
 //***************************************************************************
 //
@@ -16,7 +15,7 @@ function leapTo (link)
    if (  (new_url != "")  &&  (new_url != null)  )
       window.location=new_url;
    else
-      alert("\nYou must make a selection.");
+      alert("You must make a selection.");
    }
 // Called by View Source button - displays source of file.
 function viewSource()

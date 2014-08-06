@@ -38,7 +38,7 @@
 			"version": "2.4",
 			"config": {
 				"background-size": "cover",
-				"android": "images/loading screen.png",
+				"android": "images/lsportrait.png",
 				"android-landscape": "images/lslandscape.png",
 				"background-color": "#000000"
 			},

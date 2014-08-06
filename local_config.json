@@ -12,6 +12,10 @@
 		"profiles": {
 			"DEFAULT": {}
 		},
+<<<<<<< HEAD
 		"sdk": "C:/adt-bundle-windows-x86_64-20140702/sdk/"
+=======
+		"sdk": "C:/adt/sdk/"
+>>>>>>> 54a09b442c1751e86836bc5f19eca1eeebae1eb6
 	}
 }
