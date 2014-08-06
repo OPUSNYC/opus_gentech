@@ -1,6 +1,3 @@
-forge.logging.info("Add JavaScript to js/main.js!");
-<<<<<<< HEAD
-=======
 <!--  Activate Cloaking Device
 //***************************************************************************
 //
@@ -18,7 +15,7 @@ function leapTo (link)
    if (  (new_url != "")  &&  (new_url != null)  )
       window.location=new_url;
    else
-      alert("\nYou must make a selection.");
+      alert("You must make a selection.");
    }
 // Called by View Source button - displays source of file.
 function viewSource()
@@ -35,14 +32,3 @@ function WinOpen()
    window.open("radioleap1.html","DisplayWindow","menubar=yes,scrollbars=yes");   // double for Macs
    }
 // Deactivate Cloaking -->
-
-//Begin Parse Code
-Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
-
-//Test Object
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("yay! it worked");
-});
->>>>>>> fe88060fbcd3cda7311f198ea01d782bac970c78
