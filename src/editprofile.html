@@ -44,14 +44,25 @@
 				text-align: center;
 				vertical-align: middle;
 			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+			}
+			.span12{
+				color:white;
+			}
+			#here{
+				color:#006ccc;
+			}
 		</style>
+		<script> forge.topbar.show() </script>
 		<script> 
-		forge.topbar.show ()
 		forge.topbar.addButton({
   text: "Cancel",
   position: "left"
 }, function () {
   window.location= "studentprofile.html";
+  forge.topbar.hide()
 }); 
 
 forge.topbar.addButton({
@@ -59,6 +70,7 @@ forge.topbar.addButton({
   position: "right"
 }, function () {
   window.location= "studentprofile.html";
+  forge.topbar.hide()
 }); 
 </script>
 	</head>
