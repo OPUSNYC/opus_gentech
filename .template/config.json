@@ -41,8 +41,7 @@
 				"android": "images/lsportrait.png",
 				"android-landscape": "images/lslandscape.png",
 				"background-color": "#000000"
-			},
-			"disabled": true
+			}
 		}
 	}
 }

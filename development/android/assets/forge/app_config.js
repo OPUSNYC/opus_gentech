@@ -1,6 +1,6 @@
 window.forge = {}; window.forge.config = {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "8b32ecd7131b051464476391ba74cd47985047cb", 
+    "config_hash": "da79a130382367b05680610584fc00e8539bf0ec", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -28,7 +28,7 @@ window.forge = {}; window.forge.config = {
             "package_name": "forge.safari.opus7010da4a17f811e487281231392b77b0"
         }
     }, 
-    "description": "An empty app created by default", 
+    "description": "The app for students", 
     "modules": {
         "display": {
             "config": {
@@ -52,12 +52,11 @@ window.forge = {}; window.forge.config = {
         }, 
         "launchimage": {
             "config": {
-                "android": "src/images/loading screen.png", 
+                "android": "src/images/lsportrait.png", 
                 "android-landscape": "src/images/lslandscape.png", 
                 "background-color": "#000000", 
                 "background-size": "cover"
             }, 
-            "disabled": true, 
             "version": "2.4"
         }
     }, 
@@ -68,5 +67,6 @@ window.forge = {}; window.forge.config = {
     "version": "0.1"
 }; window.forge.module_mapping = {
     "display": "display", 
-    "icons": "icons"
+    "icons": "icons", 
+    "launchimage": "launchimage"
 };

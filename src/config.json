@@ -4,7 +4,7 @@
 	"author": "shin.junwoo97@gmail.com",
 	"version": "0.1",
 	"platform_version": "v2.1.8",
-	"description": "An empty app created by default",
+	"description": "The app for students",
 	"core": {
 		"general": {
 			"logging": {
