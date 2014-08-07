@@ -4,7 +4,8 @@ forge.logging.info("LOGGING INFO");
 forge.topbar.setTitle("OPUS");
 
 //START TABBAR CONFIGURATION
-forge.tabbar.setTint("[255, 0, 0, 255]");
+array = ["0,0,255,255"]
+forge.tabbar.setTint(array);
 
 forge.tabbar.addButton({
   icon: "images/prof_icon.png",
