@@ -20,6 +20,18 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+	<script> forge.topbar.show () 
+	
+	forge.topbar.addButton({
+  text: "Back",
+  position: "left"
+}, function () {
+  window.location= "jobs.html";  
+  forge.topbar.removeButtons();
+});
+	
+	forge.tabbar.hide()
+	</script>
   </head>
   <body>
     <div id="map-canvas"/>
