@@ -34,13 +34,3 @@ function WinOpen()
    }
 // Deactivate Cloaking -->
 
-//Begin Parse Code
-Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
-
-//Test Object
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("yay! it worked");
-});
-
