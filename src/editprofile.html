@@ -46,10 +46,10 @@
 			body{
 				background-color: #404040;
 				font-family: "Roboto";
-				color: #006ccc
+				color: white
 			}
-			.span12{
-				color:white;
+			h1, h2{
+				color:#006ccc
 			}
 			#here{
 				color:#006ccc;
@@ -78,12 +78,24 @@ forge.topbar.addButton({
 		<div class="container-narrow">
 			<div class="jumbotron">
 				<h1>Edit Profile</h1>
-				<h4>Select Image</h4>
+				<a class="select" href="#" style="color:white">
+					Select Image
+				</a>
+				
+<script> 
+			 $("a.select").click(function(){
+   forge.file.getImage();
+ });
+</script>
+
+
 			</div>
 			<div class="stockimage">
 				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
 			</div>
-			<hr>
+			<br>
+			<br>
+			<br>
 			<div class="row-fluid">
 				<div class="span12">
 					<form>

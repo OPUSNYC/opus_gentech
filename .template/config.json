@@ -43,10 +43,10 @@
 				"background-color": "#000000"
 			}
 		},
-		"ui": {
-			"version": "2.1"
-		},
 		"topbar": {
+			"version": "2.4"
+		},
+		"file": {
 			"version": "2.4"
 		}
 	}
