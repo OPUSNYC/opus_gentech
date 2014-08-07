@@ -7,6 +7,7 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<style type="text/css">
 			.container-narrow {
 				margin: 0 auto;
@@ -29,25 +30,29 @@
 			p {
 				font-size: 1.2em;
 			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+			}
+			.lead{
+				color: white;
+			}
+			.span12{
+				color:white;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="navbar navbar-static-top navbar-inverse">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					<a class="brand" href="#">OPUS</a>
-				</div>
-			</div>
-		</div>
 		<div class="container-narrow">
 			<div class="jumbotron">
-				<h1>Sign up now</h1>
+				<h1 style="color:#006ccc">Sign up now</h1>
 				<p class="lead">Welcome to the Opus application!</p>
 			</div>
 			<hr>
 			<div class="row-fluid">
-				<div class="span12">
-					<h4>Getting started</h4>
+					<h4 style="color:#006ccc">Getting started</h4>
+					<div class="span12">
+
 					<p>Please enter your name (Last, First) </p>
 					<form> 
 						<input type="text" name="name">
@@ -74,9 +79,7 @@
 					</form>
 					
 					<div align="center">
-					<a href="terms.html" >
-					<input type="submit" value="   Next   " class="btn">
-					</a>
+					<a href="terms.html" class="btn btn-primary btn-large">Next</a>
 					</div>
 					
 				</div>

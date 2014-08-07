@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
 		<meta charset="utf-8">
-		<script src="js/jquery-2.0.2.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
 		<script type='text/javascript' src='js/parseCode.js'></script>
 		<script src="js/main.js"></script>
@@ -34,15 +33,18 @@
 		</style> 
 		<script src="js/tablefilter_all_min.js"> </script>
 		<link href="css/filtergrid.css" rel="stylesheet">
+		<script> forge.topbar.show() 
+		forge.topbar.addButton({
+  text: "Maps",
+  position: "right"
+}, function () {
+  window.location= "map.html";  
+  forge.topbar.removeButtons();
+}); 	
+		forge.tabbar.show()
+		</script>
 	</head>
 	<body>
-		<div class="navbar navbar-static-top navbar-inverse">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					<a class="brand" href="#">OPUS</a>
-				</div>
-			</div>
-		</div>
 		<div class="container-narrow">
 			<div class="jumbotron">
 				<h1>Jobs</h1>
@@ -100,12 +102,6 @@ var tf2 = setFilterGrid("table2", table2_Props);
 </script>
 
 <!---Ends here-->
-					<div align="center">
-					<a href="map.html"> 
-					<img src="images/location_icon.png">
-
-					</a> 
-					</div>
 			</div>
 		</div> 
 		</div>

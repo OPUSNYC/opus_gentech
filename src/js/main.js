@@ -1,46 +1,35 @@
-forge.logging.info("Jun Woo likes to put ketchup and mustard on himself");
-<!--  Activate Cloaking Device
-//***************************************************************************
-//
-//                              Radio Button LeapTo I
-//
-//                 by Tim Wallace   (timothy@essex1.com)
-//
-//           Uses radio buttons in place of a drop-down menu.
-//
-//***************************************************************************
-// Called by an onClick in each radio button.
-function leapTo (link)
-   {
-   var new_url=link;
-   if (  (new_url != "")  &&  (new_url != null)  )
-      window.location=new_url;
-   else
-      alert("\nYou must make a selection.");
-   }
-// Called by View Source button - displays source of file.
-function viewSource()
-   {
-   var current_url="";
-   current_url=document.location;
-   window.location="view-source:"+current_url;
-   }
-// Called by Full Window button - loads file to full window for easy saving.
-function WinOpen() 
-   {
-   alert('\nPage will load to full screen.\n\nUse View/Document Source from menu bar to view source.\n\nUse File/Save As from menu bar to save.\n\nClose new window to return to this page. ');
-   window.open("radioleap1.html","DisplayWindow","menubar=yes,scrollbars=yes");
-   window.open("radioleap1.html","DisplayWindow","menubar=yes,scrollbars=yes");   // double for Macs
-   }
-// Deactivate Cloaking -->
+forge.logging.info("LOGGING INFO");
 
-//Begin Parse Code
-Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
+//choose colors for tabbar and topbar
+var color1 = [0,108,204,255];
+var color2 = [0,0,0,255];
 
-//Test Object
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("yay! it worked");
+//START TOPBAR CONFIGURATION
+forge.topbar.setTitle("OPUS");
+//forge.topbar.setTitleImage("images/logo strong.png");
+forge.topbar.setTint(color1);
+
+//START TABBAR CONFIGURATION
+forge.tabbar.setTint(color2);
+
+forge.tabbar.addButton({
+  icon: "images/job_icon.png",
+  text: "Jobs"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location="jobs.html";
+	forge.tabbar.removeButtons();
+	forge.topbar.removeButtons();
+  });
 });
 
+forge.tabbar.addButton({
+  icon: "images/prof_icon.png",
+  text: "Profile"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location="studentprofile.html";
+	forge.tabbar.removeButtons();
+	forge.topbar.removeButtons();
+  });
+});
