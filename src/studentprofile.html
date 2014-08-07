@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<script> forge.topbar.show() 
+	forge.topbar.addButton({
+  text: "Edit profile",
+  position: "right"
+}, function () {
+  window.location= "editprofile.html";
+  forge.topbar.removeButtons();
+  forge.tabbar.removeButtons();
+});
+
+forge.topbar.show() 
+	forge.topbar.addButton({
+  text: "Log Out",
+  position: "left"
+}, function () {
+  window.location= "index.html";
+  forge.topbar.removeButtons();
+  forge.tabbar.removeButtons();
+});
+
+forge.tabbar.show();
+forge.tabbar.removeButtons();
+</script>
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
@@ -50,15 +72,6 @@
 				color:#006ccc;
 			}
 		</style>
-		<script> forge.topbar.show() </script>
-		<script> forge.topbar.addButton({
-  text: "Edit profile",
-  position: "right"
-}, function () {
-  window.location= "editprofile.html";
-  forge.topbar.hide()
-});
-</script>
 	</head>
 	<body>
 		<div class="container-narrow">

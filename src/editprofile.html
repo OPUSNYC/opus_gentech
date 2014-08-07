@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<script> forge.topbar.show() 
+		forge.topbar.addButton({
+  text: "Cancel",
+  position: "left"
+}, function () {
+  window.location= "studentprofile.html";
+  forge.topbar.removeButtons();
+  forge.tabbar.removeButtons();
+}); 
+
+forge.topbar.addButton({
+  text: "Save",
+  position: "right"
+}, function () {
+  window.location= "studentprofile.html";
+  forge.topbar.removeButtons();
+  forge.tabbar.removeButtons();
+}); 
+
+forge.tabbar.hide()
+</script>
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
@@ -55,44 +75,29 @@
 				color:#006ccc;
 			}
 		</style>
-		<script> forge.topbar.show() </script>
-		<script> 
-		forge.topbar.addButton({
-  text: "Cancel",
-  position: "left"
-}, function () {
-  window.location= "studentprofile.html";
-  forge.topbar.hide()
-}); 
-
-forge.topbar.addButton({
-  text: "Save",
-  position: "right"
-}, function () {
-  window.location= "studentprofile.html";
-  forge.topbar.hide()
-}); 
-</script>
 	</head>
 	<body>
 		<div class="container-narrow">
 			<div class="jumbotron">
 				<h1>Edit Profile</h1>
-				<a class="select" href="#" style="color:white">
-					Select Image
-				</a>
-				
-<script> 
-			 $("a.select").click(function(){
-   forge.file.getImage();
- });
-</script>
-
-
 			</div>
+			
 			<div class="stockimage">
 				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
 			</div>
+			
+			<div align="center">
+			<a class="select" href="#" style="color:white">
+					Select Image
+				</a>
+			</div>
+				
+		<script> 
+			 $("a.select").click(function(){
+   forge.file.getImage();
+ });
+		</script>
+		
 			<br>
 			<br>
 			<br>
