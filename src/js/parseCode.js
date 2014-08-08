@@ -55,25 +55,46 @@ Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl
 
 }
 
-//HTML user account info input
-var email = document.getElementById('email').value;
-var firstName = document.getElementById('firstName').value;
-var lastName = document.getElementById('lastName').value;
-var phone = document.getElementById('phone').value;
-var birth = document.getElementById('birth').value;
-
-//parse user object
-
-
 //Parse user functionality
 function users()
 {
-	var user = new Parse.User();
-	user.set("firstName", firstName )
-    user.set("lastName", lastName)
-    user.set("phone", phone)
-    user.set("birth", birth)
-    user.set("email", email)
+    //parse user object
+    var user = new Parse.User();
+
+    //HTML user account info input
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var birth = document.getElementById('birth').value;
+    var date = document.getElementById('date').value;
+    var school = document.getElementById('school').value;
+    var phone = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+	user.set("firstName", firstName);
+    user.set("lastName", lastName);
+    user.set("birth", birth);
+    user.set("date", date);
+    user.set("school", school);
+    user.set("phone", phone);
+    user.set("username", email);
+    user.set("password", password);
+
+    user.signUp(null, {
+      success: function(user) 
+      {
+        alert('Signup sucessful!');
+      },
+        error: function(user, error) 
+      {
+        alert("Error: " + error.code + " " + error.message);
+      } 
+    });
+}
+
+function test()
+{
+    alert("WORKING");
 }
 
 // function testing()
