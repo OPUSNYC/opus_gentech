@@ -1,6 +1,6 @@
 Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
 
-	//HTML Form text input
+	//HTML job form text input
 	var jobType = document.getElementById('jobType').value;
 	var jobName = document.getElementById('jobName').value;
 	var jobCompany = document.getElementById('jobCompany').value;
@@ -9,8 +9,8 @@ Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl
     var Jobs = Parse.Object.extend("jobs");
     var jobs = new Jobs();
 
-function jobFields() 
-{
+    function jobFields() 
+    {
 	//parse columns set to text input
     jobs.set("type", jobType);
     jobs.set("name", jobName);
@@ -55,16 +55,37 @@ function jobFields()
 
 }
 
-function testing()
+//HTML user account info input
+var email = document.getElementById('email').value;
+var firstName = document.getElementById('firstName').value;
+var lastName = document.getElementById('lastName').value;
+var phone = document.getElementById('phone').value;
+var birth = document.getElementById('birth').value;
+
+//parse user object
+
+
+//Parse user functionality
+function users()
 {
-	var txt = 'HALLO';
+	var user = new Parse.User();
+	user.set("firstName", firstName )
+    user.set("lastName", lastName)
+    user.set("phone", phone)
+    user.set("birth", birth)
+    user.set("email", email)
 }
 
-function printTest()
-{
-	alert('PrintTest');
-	alert(txt);
-}
+// function testing()
+// {
+// 	var txt = 'HALLO';
+// }
+
+// function printTest()
+// {
+// 	alert('PrintTest');
+// 	alert(txt);
+// }
 
 
 //Adding jobs to table
@@ -93,4 +114,4 @@ function addRow(content0,content1,content2)
 	  tabBody.appendChild(row);
 }
 
-//<!-- http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript -->
+// http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 
