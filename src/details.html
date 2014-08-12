@@ -5,6 +5,8 @@
 		<meta charset="utf-8">
 		<script src="js/jquery-2.0.2.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/parse.js"></script>
+		<script src="js/parseCode.js"></script>
 		<script src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -53,39 +55,44 @@
 					<h4 style="color:#006ccc">Getting started</h4>
 					<div class="span12">
 
-					<p>Please enter your name. </p>
+					<p>Name</p>
 					<form> 
-						<input type="text" placeholder="First name">
+						<input type="text" placeholder="First name" id='firstName'>
 					</form>
 					
 					<form> 
-						<input type="text" placeholder="Last name">
+						<input type="text" placeholder="Last name" id='lastName'>
 					</form>
 					
-					<p> What is your date of birth? (mm/dd/yyyy) </p> 
+					<p>Birthday (mm/dd/yyyy) </p> 
 					<form> 
-						<input type="date">
+						<input type="date" id='birth'>
 					</form>
 					
-					<p> Please tell us your school </p>
+					<p>School Name</p>
 					<form>
-						<input type="text" placeholder="School">
+						<input type="text" placeholder="School" id='school'>
 					</form>
 					
-					<p> What is your email address? </p>
+					<p>Phone Number</p>
 					<form> 
-						<input type="text" placeholder="Email">
+						<input type="text" placeholder="phone number" id='phone'>
 					</form>
-					
-					<p> What is your phone number? </p>
+
+					<p>Email Address</p>
 					<form> 
-						<input type="text" placeholder="phone number">
+						<input type="text" placeholder="Email" id='email'>
+					</form>
+
+					<p>Create a Password</p>
+					<form> 
+						<input type="password" placeholder="Password" id='password'>
 					</form>
 					
 					<div align="center">
 					<a href="code.html" class="btn btn-primary btn-large">Back</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="terms.html" class="btn btn-primary btn-large">Next</a>
+					<a href="#" class="btn btn-primary btn-large" onclick="users();">Next</a>
 					</div>
 					
 				</div>
