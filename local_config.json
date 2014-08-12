@@ -4,6 +4,6 @@
 		"profiles": {
 			"DEFAULT": {}
 		},
-		"sdk": "C:/adt/sdk/"
+		"sdk": "C:/android-sdk-windows/"
 	}
 }
