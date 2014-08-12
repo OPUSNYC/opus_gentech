@@ -4,6 +4,7 @@
 		"profiles": {
 			"DEFAULT": {}
 		},
-		"sdk": "C:/adt/sdk/"
+		"sdk": "C:/adt/sdk/",
+		"device": "simulator"
 	}
 }

@@ -94,7 +94,10 @@ forge.tabbar.hide()
 				
 		<script> 
 			 $("a.select").click(function(){
-   forge.file.getImage();
+   forge.file.getImage({
+			width: "100px"
+			height: "100px"};
+			);
  });
 		</script>
 		
