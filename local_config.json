@@ -4,7 +4,11 @@
 		"profiles": {
 			"DEFAULT": {}
 		},
+<<<<<<< HEAD
 		"sdk": "C:/adt/sdk/",
 		"device": "simulator"
+=======
+		"sdk": "C:/android-sdk-windows/"
+>>>>>>> 82f53290bfb1dfbcfb81e3afa8788c522d99ab29
 	}
 }

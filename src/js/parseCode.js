@@ -65,7 +65,6 @@ function users()
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
     var birth = document.getElementById('birth').value;
-    var date = document.getElementById('date').value;
     var school = document.getElementById('school').value;
     var phone = document.getElementById('phone').value;
     var email = document.getElementById('email').value;
@@ -74,10 +73,10 @@ function users()
 	user.set("firstName", firstName);
     user.set("lastName", lastName);
     user.set("birth", birth);
-    user.set("date", date);
     user.set("school", school);
     user.set("phone", phone);
     user.set("username", email);
+    user.set("email", email);
     user.set("password", password);
 
     user.signUp(null, {
