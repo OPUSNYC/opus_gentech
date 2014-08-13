@@ -46,10 +46,10 @@
 		"topbar": {
 			"version": "2.4"
 		},
-		"file": {
+		"tabbar": {
 			"version": "2.4"
 		},
-		"tabbar": {
+		"file": {
 			"version": "2.4"
 		}
 	}

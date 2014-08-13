@@ -1,6 +1,7 @@
 Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
 
 	//HTML job form text input
+	
 	var jobType = document.getElementById('jobType').value;
 	var jobName = document.getElementById('jobName').value;
 	var jobCompany = document.getElementById('jobCompany').value;
