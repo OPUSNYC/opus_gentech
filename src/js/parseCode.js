@@ -109,7 +109,7 @@ function users()
     }
 
     parseFile.save().then(function() {
-      alert('File uploaded!');
+      //alert('File uploaded!'); too many popups
     }, function(error) {
       alert('The file either could not be read, or could not be saved to Parse');
     });
@@ -120,7 +120,7 @@ function users()
     user.save(null, {
         success: function(user) 
         {
-            alert("Photo saved!");
+            //alert("Photo saved!"); too many popups
         },
         error: function(user, error) 
         {
