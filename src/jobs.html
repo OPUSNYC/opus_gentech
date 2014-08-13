@@ -30,6 +30,14 @@
 			p {
 				font-size: 1.2em;
 			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+				color: white
+			}
+			h1, h2{
+				color:#006ccc
+			}
 		</style> 
 		<script src="js/tablefilter_all_min.js"> </script>
 		<link href="css/filtergrid.css" rel="stylesheet">
@@ -41,7 +49,7 @@
   window.location= "map.html";  
   forge.topbar.removeButtons();
 }); 	
-		forge.tabbar.show();
+		forge.tabbar.show()
 		</script>
 	</head>
 	<body>
@@ -53,7 +61,7 @@
 			<div class="row-fluid">
 				<div class="span12">
 
-				<p> Having trouble finding something that suits you? Try the <a href="#"> advanced search </a>! </p> 
+				<p> Having trouble finding something that suits you? Try the search! </p> 
 <div align="center">
 <table id="table2" cellpadding="0" cellspacing="0" class="TF">
     <tbody>
@@ -86,7 +94,10 @@
 </tbody>
 </table>
 
-   <button onClick='addRow("JOB","TYPE","NAME"); (jobFields()).jobQuery();'> Refresh Jobs </button>
+<br>
+<br>
+
+   <button onClick='addRow("JOB","TYPE","NAME"); (jobFields()).jobQuery();' class="btn btn-primary btn-large"> Refresh Jobs </button>
 </div> 
 			
 <!--- Script for filter--> 
