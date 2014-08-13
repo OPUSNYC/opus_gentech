@@ -1,4 +1,4 @@
-forge.logging.info("LOGGING INFO");
+forge.logging.info("AWESHUM SAUCHE");
 
 //choose colors for tabbar and topbar
 var color1 = [0,108,204,255];

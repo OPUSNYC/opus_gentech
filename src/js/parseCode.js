@@ -9,8 +9,8 @@ Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl
     var Jobs = Parse.Object.extend("jobs");
     var jobs = new Jobs();
 
-    function jobFields() 
-    {
+function jobFields() 
+{
 	//parse columns set to text input
     jobs.set("type", jobType);
     jobs.set("name", jobName);
@@ -68,16 +68,15 @@ function users()
     var birthMonth = document.getElementById('birthMonth').value - 1;
     var birthDay = document.getElementById('birthDay').value; 
     var birthYear = document.getElementById('birthYear').value;  
-    var birth = new Date(birthYear, birthMonth, birthDay) 
+        var birth = new Date(birthYear, birthMonth, birthDay) 
 
     var school = document.getElementById('school').value;
+
     var phone = document.getElementById('phone').value;
+        phone = parseInt(phone);
+
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
-
-    alert(birth);
-
-    phone = parseInt(phone);
 
 	user.set("firstName", firstName);
     user.set("lastName", lastName);
@@ -91,30 +90,45 @@ function users()
     user.signUp(null, {
       success: function(user) 
       {
-        alert('Signup sucessful!');
+        alert('Signup successful!');
       },
         error: function(user, error) 
       {
         alert("Error: " + error.code + " " + error.message);
       } 
     });
+
+    //Uploading photo to parse
+    var fileUpload = $("#profilePhoto")[0];
+    if (fileUpload.files.length > 0) 
+    {
+      var file = fileUpload.files[0];
+      var name = "photo.jpg";
+     
+      var parseFile = new Parse.File(name, file);
+    }
+
+    parseFile.save().then(function() {
+      alert('File uploaded!');
+    }, function(error) {
+      alert('The file either could not be read, or could not be saved to Parse');
+    });
+
+    user.set("profilePic", parseFile);
+
+    //Pushes to parse
+    user.save(null, {
+        success: function(user) 
+        {
+            alert("Photo saved!");
+        },
+        error: function(user, error) 
+        {
+            alert('Failed to save photo ' + error.message);
+        }
+    });
+
 }
-
-function test()
-{
-    alert("WORKING");
-}
-
-// function testing()
-// {
-// 	var txt = 'HALLO';
-// }
-
-// function printTest()
-// {
-// 	alert('PrintTest');
-// 	alert(txt);
-// }
 
 
 //Adding jobs to table
