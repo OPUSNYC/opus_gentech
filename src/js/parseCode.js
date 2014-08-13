@@ -51,8 +51,6 @@ function jobFields()
     	alert("CAN QUERY!!");
     }
     jobQuery();
-
-
 }
 
 //Parse user functionality
@@ -128,6 +126,17 @@ function users()
         }
     });
 
+}
+
+//For testing
+function testFunc()
+{
+    var hello = 'hello';
+}
+
+function testFunc2(hello)
+{
+    alert(hello);
 }
 
 
