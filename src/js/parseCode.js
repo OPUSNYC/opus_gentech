@@ -97,7 +97,8 @@ function users()
       } 
     });
 
-    //Uploading photo to parse
+    
+			//Uploading photo to parse
     var fileUpload = $("#profilePhoto")[0];
     if (fileUpload.files.length > 0) 
     {
