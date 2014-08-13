@@ -7,7 +7,7 @@ Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl
 
     //Parse Job Object
     var Jobs = Parse.Object.extend("jobs");
-    var jobs = new Jobs();
+    var jobs = new Jobs();	
 
     function jobFields() 
     {
@@ -133,5 +133,8 @@ function addRow(content0,content1,content2)
 
 	  tabBody.appendChild(row);
 }
+
+	
+
 
 // http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 
