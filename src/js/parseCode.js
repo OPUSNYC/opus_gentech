@@ -64,11 +64,20 @@ function users()
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
-    var birth = document.getElementById('birth').value;
+
+    var birthMonth = document.getElementById('birthMonth').value - 1;
+    var birthDay = document.getElementById('birthDay').value; 
+    var birthYear = document.getElementById('birthYear').value;  
+    var birth = new Date(birthYear, birthMonth, birthDay) 
+
     var school = document.getElementById('school').value;
     var phone = document.getElementById('phone').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+
+    alert(birth);
+
+    phone = parseInt(phone);
 
 	user.set("firstName", firstName);
     user.set("lastName", lastName);
