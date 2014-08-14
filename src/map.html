@@ -12,11 +12,54 @@
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(40.727998, -74.000335),
-          zoom: 13
+          center: new google.maps.LatLng(40.708629,-74.006839),
+          zoom: 19
         };
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+         home: {
+         icon: iconBase + 'homegardenbusiness_maps.png'
+        },
+        star: {
+        icon: iconBase + 'flag_maps.png'
+        },
+        info: {
+        icon: iconBase + 'info-i_maps.png'
+        }
+      };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
+         mapOptions);
+
+        var marker = new google.maps.Marker({
+          position : new google.maps.LatLng(40.708629,-74.006839),
+          map : map,
+          icon: iconBase + 'homegardenbusiness_maps.png',
+          title:"New York Economic Development Corporation"
+        })
+        var marker = new google.maps.Marker({
+          position : new google.maps.LatLng(40.708416,-74.007215),
+          map : map,
+          icon: iconBase + 'flag_maps.png',
+          title:"Job at Priceline entering data for 5 hours"
+        })
+        var marker = new google.maps.Marker({
+          position : new google.maps.LatLng(40.708327,-74.006652),
+          map : map,
+          icon: iconBase + 'flag_maps.png',
+          title:"Job deliver locks for customers Basics Plus 6 hours"
+        })
+        var marker = new google.maps.Marker({
+          position : new google.maps.LatLng(40.708736,-74.008116),
+          map : map,
+          icon: iconBase + 'flag_maps.png',
+          title:"Job at Zeytuna deliver pizza to customers for 4 hours"
+        })
+        var marker = new google.maps.Marker({
+          position : new google.maps.LatLng(40.709471,-74.006714),
+          map : map,
+          icon: iconBase + 'flag_maps.png',
+          title:"Job at Oren's Daily Roast as cashier for 5 hours"
+        })
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
