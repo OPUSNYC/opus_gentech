@@ -84,7 +84,7 @@ forge.tabbar.hide()
 			</div>
 			
 			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
+				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg">
 			</div>
 			
 			<div align="center">
@@ -93,14 +93,16 @@ forge.tabbar.hide()
 				</a>
 			</div>
 
-		<script>
-			$("a.select").click(function(){
-			forge.file.getImage({
-		
-			}
+		<script>		
+		$("a.select").click(function(){
+		forge.file.getImage({width: 500, height: 500}, function (file) {
+    forge.file.URL(file, function(url){
+        $('#proImg').attr('src', url));
+    });
+    uploadPhotoFile(file);
+});	
 }
 );
-})
 		</script>
 		
 			<br>
