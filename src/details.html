@@ -93,14 +93,28 @@
 
 					<p>Upload profile picture</p>
 					<form> 
-						<input type="file" id="profilePhoto">
+						<div align="center">
+							<a class="select" href="#" style="color:white">
+								Select Image
+							</a>
+						</div>
+
+						<div class="stockimage" align="center">
+							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg">
+						</div>
 					</form>
 
-					<div align="center">
-						<a class="select" href="#" style="color:white">
-							Select Image
-						</a>
-					</div>
+					<script> 
+					//upload profile pic
+					$("a.select").click(function(){
+						forge.file.getImage(
+							function (file) {forge.file.URL(file, 
+								function (url) {
+									$('#proImg').attr('src', url); 
+								});
+							uploadPhotoFile(file);
+						});
+					</script>
 
 					<script> 
 					$("a.select").click(function(){
