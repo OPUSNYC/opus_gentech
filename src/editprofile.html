@@ -98,10 +98,29 @@ forge.tabbar.hide()
 				forge.file.getImage(
 					function (file) {forge.file.URL(file, 
 						function (url) {
-						$('#proImg').attr('src', url); 
+
+						$('#proImg').attr('src', url); //.prepend($('&lt;img&gt;')
 					});
 					uploadPhotoFile(file);
 				});
+				// console.log("running");
+				// forge.file.getImage( 
+
+				// 	function(file)  
+				// 	{
+				// 		console.log(file);
+				// 		console.log("success...");
+				// 	},
+
+				// 	function(content)
+				// 	{
+				// 		console.log(content);
+				// 		console.log("error...")
+				// 	}
+
+				// );
+			})
+
 			</script>
 
 			<br>
