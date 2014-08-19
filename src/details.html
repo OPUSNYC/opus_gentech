@@ -95,6 +95,33 @@
 					<form> 
 						<input type="file" id="profilePhoto">
 					</form>
+
+					<div align="center">
+						<a class="select" href="#" style="color:white">
+							Select Image
+						</a>
+					</div>
+
+					<script> 
+					$("a.select").click(function(){
+						console.log("running");
+						forge.file.getImage( 
+
+								function(file)  
+								{
+									console.log(file);
+									console.log("success...");
+								},
+
+								function(content)
+								{
+									console.log(content);
+									console.log("error...")
+								}
+							);
+					})
+					</script>
+
 					
 					<div align="center">
 					<a href="code.html" class="btn btn-primary btn-large">Back</a>
