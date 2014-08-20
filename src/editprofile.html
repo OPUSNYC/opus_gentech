@@ -96,31 +96,11 @@ forge.tabbar.hide()
 			<script> 
 			$("a.select").click(function(){
 				forge.file.getImage(
-					function (file) {forge.file.URL(file, 
-						function (url) {
-
-						$('#proImg').attr('src', url); //.prepend($('&lt;img&gt;')
-					});
+					function (file) {
+						forge.file.URL(file, function (url) {$('#proImg').attr('src', url);} );
 					uploadPhotoFile(file);
-				});
-				// console.log("running");
-				// forge.file.getImage( 
-
-				// 	function(file)  
-				// 	{
-				// 		console.log(file);
-				// 		console.log("success...");
-				// 	},
-
-				// 	function(content)
-				// 	{
-				// 		console.log(content);
-				// 		console.log("error...")
-				// 	}
-
-				// );
+					});
 			})
-
 			</script>
 
 			<br>

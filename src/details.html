@@ -99,41 +99,50 @@
 							</a>
 						</div>
 
-						<div class="stockimage" align="center">
-							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg">
+						<div class="stockimage">
+							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg" align='center'>
 						</div>
 					</form>
 
+
 					<script> 
-					//upload profile pic
-					$("a.select").click(function(){
-						forge.file.getImage(
-							function (file) {forge.file.URL(file, 
-								function (url) {
-									$('#proImg').attr('src', url); 
-								});
-							uploadPhotoFile(file);
-						});
+					//Get profile pic
+					$("a.select").click(
+						function()
+						{
+							forge.file.getImage
+							(
+								{width:260, height:300}, //1st param
+								function (file) //2nd param
+								{
+									forge.file.URL(file, function (url) {
+										$('#proImg').attr('src', url);} 
+									);
+									uploadPhotoFile(file);
+								}
+							);
+						}
+					)
 					</script>
 
 					<script> 
-					$("a.select").click(function(){
-						console.log("running");
-						forge.file.getImage( 
+					// $("a.select").click(function(){
+					// 	console.log("running");
+					// 	forge.file.getImage( 
 
-								function(file)  
-								{
-									console.log(file);
-									console.log("success...");
-								},
+					// 			function(file)  
+					// 			{
+					// 				console.log(file);
+					// 				console.log("success...");
+					// 			},
 
-								function(content)
-								{
-									console.log(content);
-									console.log("error...")
-								}
-							);
-					})
+					// 			function(content)
+					// 			{
+					// 				console.log(content);
+					// 				console.log("error...")
+					// 			}
+					// 		);
+					// })
 					</script>
 
 					

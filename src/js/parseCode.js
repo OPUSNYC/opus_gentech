@@ -54,11 +54,9 @@ function jobFields()
     jobQuery();
 }
 
-//Parse user functionality
-function users()
-{
-    //parse user object
-    var user = new Parse.User();
+function setUserProps(user){
+
+   console.log(user)
 
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
@@ -77,7 +75,7 @@ function users()
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
-	user.set("firstName", firstName);
+    user.set("firstName", firstName);
     user.set("lastName", lastName);
     user.set("birth", birth);
     user.set("school", school);
@@ -85,6 +83,15 @@ function users()
     user.set("username", email);
     user.set("email", email);
     user.set("password", password);
+}
+
+//Parse user functionality
+function users()
+{
+    //parse user object
+    var user = new Parse.User();
+
+    setUserProps(user);
 
     user.signUp(null, {
       success: function(user) 
@@ -98,7 +105,7 @@ function users()
     });
 
     
-			//Uploading photo to parse
+	//Uploading photo to parse
     var fileUpload = $("#profilePhoto")[0];
     if (fileUpload.files.length > 0) 
     {
@@ -109,18 +116,18 @@ function users()
     }
 
     parseFile.save().then(function() {
-      //alert('File uploaded!'); too many popups
+      //alert('File uploaded!'); - too many popups
     }, function(error) {
       alert('The file either could not be read, or could not be saved to Parse');
     });
 
     user.set("profilePic", parseFile);
 
-    //Pushes to parse
+    //Pushes photo to parse
     user.save(null, {
         success: function(user) 
         {
-            //alert("Photo saved!"); too many popups
+            //alert("Photo saved!"); - too many popups
         },
         error: function(user, error) 
         {
