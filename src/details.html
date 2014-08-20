@@ -101,22 +101,41 @@
 
 						<div class="stockimage" align='center'>
 							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
+
+							<br>
+
+							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'>
+
 						</div>
 					</form>
 
 
 					<script> 
 					//Get profile pic
+
+					function getUrl(url)
+					{
+						var holdUrl = url;
+						$('#testPhoto').attr('src', holdUrl);
+					}
+
+					var picProp = {
+						width: 260,
+						height: 300
+					};
+
 					$("a.select").click(
 						function()
 						{
 							forge.file.getImage
 							(
-								{width:260, height:300}, //1st param
+								picProp, //1st param
 								function (file) //2nd param
 								{
 									forge.file.URL(file, function (url) {
-										$('#profilePhoto').attr('src', url);} 
+										$('#profilePhoto').attr('src', url);
+										getUrl(url);
+									} 
 									);
 									
 								}
@@ -124,50 +143,29 @@
 						}	
 					)
 
-					var uploadPhotoFile = function(file) {
-						forge.request.ajax({
-							url: 'https://api.parse.com/1/files/' + (
-								new Date()).getTime() + '.jpg',
-							headers: {
-								'TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A': config.parseAppId,
-								'FpCmaID2Tj6pRsSbdFItySl3qYAr13Ear0NvEYn9': config.parseRestKey
-							},
-							type: 'POST',
-							files: [file],
-							fileUploadMethod: 'raw',
-							dataType: 'json',
-							success: function (data) {
-								uploadPhotoMetadata(data);
-							},
-							error: function () {
-								alert('Problem uploading photo');
-							}
-						});
-					};
+					// var uploadPhotoFile = function(file) {
+					// 	forge.request.ajax({
+					// 		url: 'https://api.parse.com/1/files/' + (
+					// 			new Date()).getTime() + '.jpg',
+					// 		headers: {
+					// 			'TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A': config.parseAppId,
+					// 			'FpCmaID2Tj6pRsSbdFItySl3qYAr13Ear0NvEYn9': config.parseRestKey
+					// 		},
+					// 		type: 'POST',
+					// 		files: [file],
+					// 		fileUploadMethod: 'raw',
+					// 		dataType: 'json',
+					// 		success: function (data) {
+					// 			uploadPhotoMetadata(data);
+					// 		},
+					// 		error: function () {
+					// 			alert('Problem uploading photo');
+					// 		}
+					// 	});
+					// };
 
 					</script>
 
-					<script> 
-					// $("a.select").click(function(){
-					// 	console.log("running");
-					// 	forge.file.getImage( 
-
-					// 			function(file)  
-					// 			{
-					// 				console.log(file);
-					// 				console.log("success...");
-					// 			},
-
-					// 			function(content)
-					// 			{
-					// 				console.log(content);
-					// 				console.log("error...")
-					// 			}
-					// 		);
-					// })
-					</script>
-
-					
 					<div align="center">
 					<a href="code.html" class="btn btn-primary btn-large">Back</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
