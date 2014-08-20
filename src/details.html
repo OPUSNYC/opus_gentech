@@ -99,8 +99,8 @@
 							</a>
 						</div>
 
-						<div class="stockimage">
-							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg" align='center'>
+						<div class="stockimage" align='center'>
+							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
 						</div>
 					</form>
 
@@ -116,13 +116,35 @@
 								function (file) //2nd param
 								{
 									forge.file.URL(file, function (url) {
-										$('#proImg').attr('src', url);} 
+										$('#profilePhoto').attr('src', url);} 
 									);
-									uploadPhotoFile(file);
+									
 								}
 							);
-						}
+						}	
 					)
+
+					var uploadPhotoFile = function(file) {
+						forge.request.ajax({
+							url: 'https://api.parse.com/1/files/' + (
+								new Date()).getTime() + '.jpg',
+							headers: {
+								'TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A': config.parseAppId,
+								'FpCmaID2Tj6pRsSbdFItySl3qYAr13Ear0NvEYn9': config.parseRestKey
+							},
+							type: 'POST',
+							files: [file],
+							fileUploadMethod: 'raw',
+							dataType: 'json',
+							success: function (data) {
+								uploadPhotoMetadata(data);
+							},
+							error: function () {
+								alert('Problem uploading photo');
+							}
+						});
+					};
+
 					</script>
 
 					<script> 
