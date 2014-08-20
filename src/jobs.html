@@ -5,6 +5,7 @@
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
+		<script type='text/javascript' src='js/jobs_refresh.js'></script>
 		<script type='text/javascript' src='js/parseCode.js'></script>
 		<script src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
@@ -65,56 +66,18 @@
 <div align="center">
 <table id="table2" cellpadding="0" cellspacing="0" class="TF">
     <tbody>
-		
+	
 	<tr>
-        <th>Job types</th>
-        <th>Name</th>
+        <th>Type</th>
         <th>Company</th>
+        <th>Name</th>
+		<th>Pay per hour</th>
     </tr>
-    <tr>
-        <td>Secreterial</td>
-        <td>Answering phones</td>
-        <td>Company 1</td>
-    </tr>
-    <tr>
-        <td>Services</td>
-        <td>Taking care of customers</td>
-        <td>Company 2</td>
-    </tr>
-    <tr>
-        <td>Services</td>
-        <td>Filing paper</td>
-        <td>Company 3</td>
-    </tr>
-    <tr>
-        <td>Data</td>
-        <td>Entering customer information</td>
-        <td>Company 2</td>
-    </tr>
+  
 </tbody>
 </table>
-
-<br>
-<br>
-
-   <button onClick='addRow("JOB","TYPE","NAME"); (jobFields()).jobQuery();' class="btn btn-primary btn-large"> Refresh Jobs </button>
 </div> 
 			
-<!--- Script for filter--> 
-<script type="text/javascript">
-//<![CDATA[ 
-
-var table2_Props = {
-    col_0: "select",
-    col_4: "none",
-    display_all_text: " [ Show all ] ",
-    sort_select: true
-};
-var tf2 = setFilterGrid("table2", table2_Props);
-//]]>  
-</script>
-
-<!---Ends here-->
 			</div>
 		</div> 
 		</div>

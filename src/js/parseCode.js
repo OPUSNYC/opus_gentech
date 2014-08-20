@@ -2,14 +2,16 @@ Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl
 
 	//HTML job form text input
 	
-	var jobType = document.getElementById('jobType').value;
+	/* var jobType = document.getElementById('jobType').value;
 	var jobName = document.getElementById('jobName').value;
-	var jobCompany = document.getElementById('jobCompany').value;
+	var jobCompany = document.getElementById('jobCompany').value; */
 
     //Parse Job Object
     var Jobs = Parse.Object.extend("jobs");
     var jobs = new Jobs();	
 
+	getJobs();
+	
 function jobFields() 
 {
 	//parse columns set to text input
@@ -140,35 +142,5 @@ function testFunc2(hello)
 {
     alert(hello);
 }
-
-
-//Adding jobs to table
-function addRow(content0,content1,content2)
-{
-	  if (!document.getElementsByTagName) return;
-	  tabBody=document.getElementsByTagName("tbody").item(0);
-	  row=document.createElement("tr");
-
-	  cell1 = document.createElement("td");
-	  cell2 = document.createElement("td");
-	  cell3 = document.createElement("td");
-
-	  textnode1=document.createTextNode(content0);
-	  textnode2=document.createTextNode(content1);
-	  textnode3=document.createTextNode(content2);
-
-	  cell1.appendChild(textnode1);
-	  cell2.appendChild(textnode2);
-	  cell3.appendChild(textnode3);
-
-	  row.appendChild(cell1);
-	  row.appendChild(cell2);
-	  row.appendChild(cell3);
-
-	  tabBody.appendChild(row);
-}
-
-	
-
 
 // http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 
