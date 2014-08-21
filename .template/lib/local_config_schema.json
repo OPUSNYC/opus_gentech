@@ -364,6 +364,79 @@
 					}
 				}
 			}
+		},
+
+		"ie": {
+			"required": false,
+			"type": "object",
+			"additionalProperties": false,
+			"title": "Internet Explorer",
+			"properties": {
+				"profiles": {
+					"required": true,
+					"type": "object",
+					"properties": {
+						"DEFAULT": {
+							"_comment": "Fixed default profile to hold us over until we allow dynamic add/remove of profiles",
+							"type": "object",
+							"required": true,
+							"properties": {
+								"developer_certificate": {
+									"type": "string",
+									"blank": false,
+									"required": false,
+									"title": "Certificate",
+									"description": "Name of the p12 or pfx certificate file used to sign your IE extension with."
+								},
+								"developer_certificate_path": {
+									"type": "string",
+									"blank": false,
+									"required": false,
+									"_filepicker": true,
+									"title": "Certificate Path",
+									"description": "Path to the p12 or pfx certificate file used to sign your IE extension with."
+								},
+								"developer_certificate_password": {
+									"type": "string",
+									"blank": false,
+									"required": false,
+									"_password": true,
+									"title": "Certificate Password",
+									"description": "Password for the p12 of pfx certificate file."
+								}
+							}
+						}
+					},
+					"additionalProperties": {
+						"type": "object",
+						"properties": {
+							"developer_certificate": {
+								"type": "string",
+								"blank": false,
+								"required": false,
+								"title": "Certificate",
+								"description": "Name of the p12 or pfx certificate file used to sign your IE extension with."
+							},
+							"developer_certificate_path": {
+								"type": "string",
+								"blank": false,
+								"required": false,
+								"_filepicker": true,
+								"title": "Certificate Path",
+								"description": "Path to the p12 or pfx certificate file used to sign your IE extension with."
+							},
+							"developer_certificate_password": {
+								"type": "string",
+								"blank": false,
+								"required": false,
+								"_password": true,
+								"title": "Certificate Password",
+								"description": "Password for the p12 of pfx certificate file."
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
