@@ -2,14 +2,16 @@ Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl
 
 	//HTML job form text input
 	
-	var jobType = document.getElementById('jobType').value;
+	/* var jobType = document.getElementById('jobType').value;
 	var jobName = document.getElementById('jobName').value;
-	var jobCompany = document.getElementById('jobCompany').value;
+	var jobCompany = document.getElementById('jobCompany').value; */
 
     //Parse Job Object
     var Jobs = Parse.Object.extend("jobs");
     var jobs = new Jobs();	
 
+	
+	
 function jobFields() 
 {
 	//parse columns set to text input
@@ -62,7 +64,6 @@ function signUp()
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
-
     var birthMonth = document.getElementById('birthMonth').value - 1;
     var birthDay = document.getElementById('birthDay').value; 
     var birthYear = document.getElementById('birthYear').value;  
@@ -103,7 +104,6 @@ var testAlert;
 function uploadPic()
 {
     var user = new Parse.User();
-
 	//Uploading photo to parse
     var fileUpload = $("#profilePhoto")[0];
     if (fileUpload.files.length > 0) 
@@ -155,8 +155,6 @@ function logIn()
         // The login failed. Check error to see why.
         }
     });
-
-
 }
 
 //Adding jobs to table
@@ -184,8 +182,4 @@ function addRow(content0,content1,content2)
 
 	  tabBody.appendChild(row);
 }
-
-	
-
-
 // http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 

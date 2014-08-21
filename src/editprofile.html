@@ -1,31 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script> forge.topbar.show() 
-		forge.topbar.addButton({
-  text: "Cancel",
-  position: "left"
-}, function () {
-  window.location= "studentprofile.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
-}); 
-
-forge.topbar.addButton({
-  text: "Save",
-  position: "right"
-}, function () {
-  window.location= "studentprofile.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
-}); 
-
-forge.tabbar.hide()
-</script>
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
-		<script src="js/parseCode.js"></script>
+		<script type='text/javascript' src="js/parseCode.js"></script>
 		<script type='text/javascript' src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -76,6 +55,27 @@ forge.tabbar.hide()
 				color:#006ccc;
 			}
 		</style>
+		<script> forge.topbar.show() 
+		forge.topbar.addButton({
+  text: "Cancel",
+  position: "left"
+}, function () {
+  window.location= "studentprofile.html";
+  forge.topbar.removeButtons();
+  forge.tabbar.removeButtons();
+}); 
+
+forge.topbar.addButton({
+  text: "Save",
+  position: "right"
+}, function () {
+  window.location= "studentprofile.html";
+  forge.topbar.removeButtons();
+  forge.tabbar.removeButtons();
+});
+
+forge.tabbar.hide()
+</script>
 	</head>
 	<body>
 		<div class="container-narrow">
@@ -100,7 +100,22 @@ forge.tabbar.hide()
 						forge.file.URL(file, function (url) {$('#proImg').attr('src', url);} );
 					uploadPhotoFile(file);
 					});
-			})
+				});
+				/* console.log("running");
+				forge.file.getImage( 
+
+				function(file)  
+				{
+				 	console.log(file);
+				 		console.log("success...");
+				 	},
+
+				 	function(content)
+				 	{
+				 		console.log(content);
+				 		console.log("error...")
+				 	}
+				*/ 
 			</script>
 
 			<br>
@@ -111,26 +126,25 @@ forge.tabbar.hide()
 					<form>
 					<table>
 						<tr>
-							<td align="left">Name:</td>
-							<td align="right"><input type="text" name="fullname" /></td>
+							<td align="left">Name</td>
+							<td> <input type="text" id="firstName" style="width:100px;"> <input type="text" id="lastName" style="width:100px;"> </td>	
 						</tr>
 						<tr>
 							<td align="left">Phone #:</td>
-							<td align="right"><input type="number" name="pnumber" /></td>
+							<td><input type="number" id="phone" style="width:75px;"/></td>
 						</td>
 						<tr>
 							<td align="left">Email :</td>
-							<td align="right"><input type="text" name="email" /></td>
+							<td><input type="text" id="email" style="width:75px;" /></td>
 						</td>
 					</table>
 					</form>
-				</div>
-			</body>
+				</div>				
 			<div class="aboutmetext">
 			<h2>About Me</h2>
 			<form>
 			<input type="text" name="textfield" width="500" height="500" />
 			</form>
 			</div>
-
+			</body>
 		</html>
