@@ -54,9 +54,10 @@ function jobFields()
     jobQuery();
 }
 
-function setUserProps(user){
-
-   console.log(user);
+function signUp()
+{
+    alert(testAlert);
+    var user = new Parse.User();
 
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
@@ -83,34 +84,33 @@ function setUserProps(user){
     user.set("username", email);
     user.set("email", email);
     user.set("password", password);
-}
-
-//Parse user functionality
-function users()
-{
-    //parse user object
-    var user = new Parse.User();
-
-    setUserProps(user);
 
     user.signUp(null, {
       success: function(user) 
       {
         alert('Signup successful!');
       },
-        error: function(user, error) 
+      error: function(user, error) 
       {
         alert("Error: " + error.code + " " + error.message);
       } 
     });
+}
 
-    
+var testAlert;
+
+//Parse user functionality
+function uploadPic()
+{
+    var user = new Parse.User();
+
 	//Uploading photo to parse
     var fileUpload = $("#profilePhoto")[0];
     if (fileUpload.files.length > 0) 
     {
       var file = fileUpload.files[0];
       var name = "photo.jpg";
+      //var file = holdPic;
      
       var parseFile = new Parse.File(name, file);
     }
@@ -136,18 +136,6 @@ function users()
     });
 
 }
-
-//For testing
-function testFunc()
-{
-    var hello = 'hello';
-}
-
-function testFunc2(hello)
-{
-    alert(hello);
-}
-
 
 //Adding jobs to table
 function addRow(content0,content1,content2)

@@ -57,38 +57,38 @@
 
 					<p>Name</p>
 					<form> 
-						<input type="text" placeholder="First name" id='firstName'>
+						<input type="text" placeholder="First name" id='firstName' value='test'>
 					</form>
 					
 					<form> 
-						<input type="text" placeholder="Last name" id='lastName'>
+						<input type="text" placeholder="Last name" id='lastName' value = 'testy'>
 					</form>
 					
 					<p>Birthday</p> 
 					<form> 
-						<input type="number" id='birthMonth' placeholder="month"> 
-						<input type="number" id='birthDay' placeholder="day"> 
-						<input type="number" id='birthYear' placeholder="year">
+						<input type="number" id='birthMonth' placeholder="month" value = 1> 
+						<input type="number" id='birthDay' placeholder="day" value = 1> 
+						<input type="number" id='birthYear' placeholder="year" value = 1997>
 					</form>
 					
 					<p>School Name</p>
 					<form>
-						<input type="text" placeholder="School" id='school'>
+						<input type="text" placeholder="School" id='school' value = "testschool">
 					</form>
 					
 					<p>Phone Number</p>
 					<form> 
-						<input type="number" placeholder="phone number" id='phone'>
+						<input type="number" placeholder="phone number" id='phone' value = 1234>
 					</form>
 
 					<p>Email Address</p>
 					<form> 
-						<input type="text" placeholder="Email" id='email'>
+						<input type="text" placeholder="Email" id='email' value = 'test@gmail.com'>
 					</form>
 
 					<p>Create a Password</p>
 					<form> 
-						<input type="password" placeholder="Password" id='password'>
+						<input type="password" placeholder="Password" id='password' value = 'asdf'>
 					</form>
 
 					<p>Upload profile picture</p>
@@ -101,27 +101,34 @@
 
 						<div class="stockimage" align='center'>
 							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
-
+<!-- 
 							<br>
 
-							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'>
+							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'> -->
 
 						</div>
 					</form>
+
+				    <!-- <p>Upload profile picture</p>
+					<form> 
+						<input type="file" id="profilePhoto">
+					</form> -->
 
 
 					<script> 
 					//Get profile pic
 
-					function getUrl(url)
-					{
-						var holdUrl = url;
-						$('#testPhoto').attr('src', holdUrl);
-					}
+					// function getUrl(url)
+					// {
+					// 	var holdUrl = url;
+					// 	$('#testPhoto').attr('src', holdUrl);
+					// }
+
+					//var holdPic;
 
 					var picProp = {
-						width: 260,
-						height: 300
+						width: 500,
+						height: 500
 					};
 
 					$("a.select").click(
@@ -134,7 +141,8 @@
 								{
 									forge.file.URL(file, function (url) {
 										$('#profilePhoto').attr('src', url);
-										getUrl(url);
+										//getUrl(url);
+										//holdPic = file;
 									} 
 									);
 									
@@ -169,7 +177,7 @@
 					<div align="center">
 					<a href="code.html" class="btn btn-primary btn-large">Back</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#" class="btn btn-primary btn-large" onclick="users();">Next</a>
+					<a href="#" class="btn btn-primary btn-large" onclick="signUp(); uploadPic();">Next</a>
 					</div>
 					
 				</div>
