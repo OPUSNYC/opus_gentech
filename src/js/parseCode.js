@@ -66,7 +66,7 @@ function signUp()
     var birthMonth = document.getElementById('birthMonth').value - 1;
     var birthDay = document.getElementById('birthDay').value; 
     var birthYear = document.getElementById('birthYear').value;  
-        var birth = new Date(birthYear, birthMonth, birthDay) 
+    var birth = new Date(birthYear, birthMonth, birthDay) 
 
     var school = document.getElementById('school').value;
 
@@ -75,6 +75,7 @@ function signUp()
 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var reEnter = document.getElementById('reEnter').value;
 
     user.set("firstName", firstName);
     user.set("lastName", lastName);
@@ -85,16 +86,23 @@ function signUp()
     user.set("email", email);
     user.set("password", password);
 
-    user.signUp(null, {
-      success: function(user) 
-      {
-        alert('Signup successful!');
-      },
-      error: function(user, error) 
-      {
-        alert("Error: " + error.code + " " + error.message);
-      } 
-    });
+    if(password == reEnter)
+    {
+        user.signUp(null, {
+          success: function(user) 
+          {
+            alert('Signup successful!');
+          },
+          error: function(user, error) 
+          {
+            alert("Error: " + error.code + " " + error.message);
+          } 
+        });
+    }
+    else
+    {
+        alert('Passwords do not match. Please try again.');
+    }
 }
 
 var testAlert;
