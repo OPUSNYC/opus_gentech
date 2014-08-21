@@ -150,7 +150,7 @@ function logIn()
          // Do stuff after successful login.
         },
       error: function(user, error) {
-        alert("Login Failed");
+        alert("Login Failed \n Incorrect email or password");
         document.getElementById('login').href='#';
         // The login failed. Check error to see why.
         }
