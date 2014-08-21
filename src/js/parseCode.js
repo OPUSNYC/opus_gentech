@@ -1,40 +1,161 @@
 Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
 
-//Parse Test Object
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("This message indicates parse.js runs. Check online for confirmation");
-});
-
-
-
-//Get input from HTML
-function jobFields() 
-{
+	//HTML job form text input
+	
 	var jobType = document.getElementById('jobType').value;
 	var jobName = document.getElementById('jobName').value;
 	var jobCompany = document.getElementById('jobCompany').value;
 
     //Parse Job Object
-	var Jobs = Parse.Object.extend("jobs");
-    var jobs = new Jobs();
+    var Jobs = Parse.Object.extend("jobs");
+    var jobs = new Jobs();	
 
+function jobFields() 
+{
+	//parse columns set to text input
     jobs.set("type", jobType);
     jobs.set("name", jobName);
     jobs.set("company", jobCompany);
 
+    //Pushes to parse
     jobs.save(null, {
-	  success: function(jobs) 
-	  {
-	    alert("New job saved sucessfully:" + "\n Job Type: " + jobType + " \n Name: " + jobName +" \n Company: " + jobCompany);
-	    addRow(jobType, jobName, jobCompany);
-	  },
-	  error: function(jobs, error) 
-	  {
-	    alert('Failed to save job ' + error.message);
-	  }
-	});
+    	success: function(jobs) 
+    	{
+    		alert("New job saved sucessfully:" + "\n Job Type: " + jobType + " \n Name: " + jobName +" \n Company: " + jobCompany);
+    	},
+    	error: function(jobs, error) 
+    	{
+    		alert('Failed to save job ' + error.message);
+    	}
+    });
+
+    this.jobQuery = function()
+    {
+    	var query = new Parse.Query(Jobs);
+    	query.find({
+    		success: function(results)
+    		{
+    			alert("Successfully retrieved " + results.length + " jobs.");
+    			for (var i = 0; i < results.length; i++) 
+    			{
+    				var listJob = results[i];
+    				alert(listJob.id + ' - ' + listJob.get('company'));
+    			}	
+    		},
+
+    		error: function(error)
+    		{
+    			alert("Error: " + error.code + " " + error.message);
+    		}
+    	});
+
+    	alert("CAN QUERY!!");
+    }
+    jobQuery();
+}
+
+function signUp()
+{
+    alert(testAlert);
+    var user = new Parse.User();
+
+    //HTML user account info input
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+
+    var birthMonth = document.getElementById('birthMonth').value - 1;
+    var birthDay = document.getElementById('birthDay').value; 
+    var birthYear = document.getElementById('birthYear').value;  
+        var birth = new Date(birthYear, birthMonth, birthDay) 
+
+    var school = document.getElementById('school').value;
+
+    var phone = document.getElementById('phone').value;
+        phone = parseInt(phone);
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    user.set("firstName", firstName);
+    user.set("lastName", lastName);
+    user.set("birth", birth);
+    user.set("school", school);
+    user.set("phone", phone);
+    user.set("username", email);
+    user.set("email", email);
+    user.set("password", password);
+
+    user.signUp(null, {
+      success: function(user) 
+      {
+        alert('Signup successful!');
+      },
+      error: function(user, error) 
+      {
+        alert("Error: " + error.code + " " + error.message);
+      } 
+    });
+}
+
+var testAlert;
+
+//Parse user functionality
+function uploadPic()
+{
+    var user = new Parse.User();
+
+	//Uploading photo to parse
+    var fileUpload = $("#profilePhoto")[0];
+    if (fileUpload.files.length > 0) 
+    {
+      var file = fileUpload.files[0];
+      var name = "photo.jpg";
+      //var file = holdPic;
+     
+      var parseFile = new Parse.File(name, file);
+    }
+
+    parseFile.save().then(function() {
+      alert('File uploaded!'); 
+    }, function(error) {
+      alert('The file either could not be read, or could not be saved to Parse');
+    });
+
+    user.set("profilePic", parseFile);
+
+    //Pushes photo to parse
+    user.save(null, {
+        success: function(user) 
+        {
+            alert("Photo saved!"); 
+        },
+        error: function(user, error) 
+        {
+            alert('Failed to save photo ' + error.message);
+        }
+    });
+
+}
+
+function logIn()
+{
+    var user = new Parse.User();
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    Parse.User.logIn(email, password, {
+      success: function(user) {
+        window.location.assign('studentprofile.html');
+         // Do stuff after successful login.
+        },
+      error: function(user, error) {
+        alert("Login Failed");
+        document.getElementById('login').href='#';
+        // The login failed. Check error to see why.
+        }
+    });
+
 
 }
 
@@ -64,4 +185,7 @@ function addRow(content0,content1,content2)
 	  tabBody.appendChild(row);
 }
 
-<!-- http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript -->
+	
+
+
+// http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 

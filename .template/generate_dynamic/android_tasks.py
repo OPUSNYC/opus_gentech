@@ -28,7 +28,7 @@ class AndroidError(lib.BASE_EXCEPTION):
 
 # TODO: put jdk/jre info in here also, as they're often used together?
 # tuple type for passing around information about where android tools are located
-PathInfo = namedtuple('PathInfo', 'android adb aapt sdk')
+PathInfo = namedtuple('PathInfo', 'android adb aapt zipalign sdk')
 
 def _find_aapt(sdk):
 	"""aapt has moved in SDK v22 - look in possible locations"""
@@ -47,6 +47,23 @@ def _find_aapt(sdk):
 			"including platform tools.\n\n"
 			"Looked in: {locations}".format(locations="\n".join(locations)))
 
+def _find_zipalign(sdk):
+	"""zipalign has moved in SDK v23 - look in possible locations"""
+	locations = (
+		path.join(sdk, 'tools', 'zipalign'),
+		path.join(sdk, 'build-tools', '*', 'zipalign'),
+		path.join(sdk, 'tools', 'zipalign.exe'),
+		path.join(sdk, 'build-tools', '*', 'zipalign.exe'),
+	)
+	for location in locations:
+		if glob(location):
+			return glob(location)[-1]
+	else:
+		raise AndroidError("Couldn't find 'zipalign' tool! "
+			"You may need to update your Android SDK, "
+			"including build tools.\n\n"
+			"Looked in: {locations}".format(locations="\n".join(locations)))
+
 def _android_path_from_sdk(sdk):
 	return path.abspath(path.join(
 			sdk,
@@ -61,6 +78,7 @@ def _create_path_info_from_sdk(sdk):
 		android=_android_path_from_sdk(sdk),
 		adb=path.abspath(path.join(sdk, 'platform-tools', 'adb')),
 		aapt=_find_aapt(sdk),
+		zipalign=_find_zipalign(sdk),
 		sdk=sdk,
 	)
 
@@ -465,8 +483,8 @@ def _sign_zipf_release(lib_path, jre, zipf_name, signed_zipf_name, signing_info)
 
 def _align_apk(path_info, signed_zipf_name, out_apk_name):
 	LOG.info('Aligning apk')
-
-	args = [path.join(path_info.sdk, 'tools', 'zipalign'), '-v', '4', signed_zipf_name, out_apk_name]
+	
+	args = [path_info.zipalign, '-v', '4', signed_zipf_name, out_apk_name]
 	run_shell(*args)
 
 def _generate_package_name(build):

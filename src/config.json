@@ -3,7 +3,7 @@
 	"name": "OPUS",
 	"author": "shin.junwoo97@gmail.com",
 	"version": "0.1",
-	"platform_version": "v2.1.8",
+	"platform_version": "v2.1.9",
 	"description": "The app for students",
 	"core": {
 		"general": {
@@ -46,10 +46,17 @@
 		"topbar": {
 			"version": "2.4"
 		},
+<<<<<<< HEAD
 		"file": {
 			"version": "2.4"
 		},
 		"tabbar": {
+=======
+		"tabbar": {
+			"version": "2.4"
+		},
+		"file": {
+>>>>>>> 3a56d1c5e360346b5ed2979627657aaeecb4890d
 			"version": "2.4"
 		}
 	}

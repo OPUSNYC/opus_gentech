@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
 		<meta charset="utf-8">
-		<script src="js/jquery-2.0.2.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
 		<script type='text/javascript' src='js/parseCode.js'></script>
 		<script src="js/main.js"></script>
@@ -31,9 +30,27 @@
 			p {
 				font-size: 1.2em;
 			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+				color: white
+			}
+			h1, h2{
+				color:#006ccc
+			}
 		</style> 
 		<script src="js/tablefilter_all_min.js"> </script>
 		<link href="css/filtergrid.css" rel="stylesheet">
+		<script> forge.topbar.show() 
+		forge.topbar.addButton({
+  text: "Maps",
+  position: "right"
+}, function () {
+  window.location= "map.html";  
+  forge.topbar.removeButtons();
+}); 	
+		forge.tabbar.show()
+		</script>
 	</head>
 	<body>
 		<div class="container-narrow">
@@ -44,7 +61,7 @@
 			<div class="row-fluid">
 				<div class="span12">
 
-				<p> Having trouble finding something that suits you? Try the <a href="#"> advanced search </a>! </p> 
+				<p> Having trouble finding something that suits you? Try the search! </p> 
 <div align="center">
 <table id="table2" cellpadding="0" cellspacing="0" class="TF">
     <tbody>
@@ -76,6 +93,11 @@
     </tr>
 </tbody>
 </table>
+
+<br>
+<br>
+
+   <button onClick='addRow("JOB","TYPE","NAME"); (jobFields()).jobQuery();' class="btn btn-primary btn-large"> Refresh Jobs </button>
 </div> 
 			
 <!--- Script for filter--> 
@@ -93,12 +115,6 @@ var tf2 = setFilterGrid("table2", table2_Props);
 </script>
 
 <!---Ends here-->
-					<div align="center">
-					<a href="map.html"> 
-					<img src="images/location_icon.png">
-
-					</a> 
-					</div>
 			</div>
 		</div> 
 		</div>

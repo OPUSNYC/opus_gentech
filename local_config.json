@@ -4,7 +4,11 @@
 		"profiles": {
 			"DEFAULT": {}
 		},
+<<<<<<< HEAD
 		"sdk": "C:/adt/sdk/",
 		"device": "00520300599126aa"
+=======
+		"sdk": "C:/android-sdk-windows/"
+>>>>>>> 3a56d1c5e360346b5ed2979627657aaeecb4890d
 	}
 }

@@ -5,8 +5,11 @@
 		<meta charset="utf-8">
 		<script src="js/jquery-2.0.2.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/parse.js"></script>
+		<script src="js/parseCode.js"></script>
 		<script src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 		<style type="text/css">
 			.container-narrow {
 				margin: 0 auto;
@@ -29,47 +32,152 @@
 			p {
 				font-size: 1.2em;
 			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+			}
+			.lead{
+				color: white;
+			}
+			.span12{
+				color:white;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container-narrow">
 			<div class="jumbotron">
-				<h1>Sign up now</h1>
+				<h1 style="color:#006ccc">Sign up now</h1>
 				<p class="lead">Welcome to the Opus application!</p>
 			</div>
 			<hr>
 			<div class="row-fluid">
-				<div class="span12">
-					<h4>Getting started</h4>
-					<p>Please enter your name (Last, First) </p>
+					<h4 style="color:#006ccc">Getting started</h4>
+					<div class="span12">
+
+					<p>Name</p>
 					<form> 
-						<input type="text" name="name">
+						<input type="text" placeholder="First name" id='firstName' value='Samson'>
 					</form>
 					
-					<p> What is your date of birth? (mm/dd/yyyy) </p> 
 					<form> 
-						<input type="date">
+						<input type="text" placeholder="Last name" id='lastName' value = 'Leung'>
 					</form>
 					
-					<p> Please tell us your school </p>
+					<p>Birthday</p> 
+					<form> 
+						<input type="number" id='birthMonth' placeholder="month" value = 10> 
+						<input type="number" id='birthDay' placeholder="day" value = 31> 
+						<input type="number" id='birthYear' placeholder="year" value = 1997>
+					</form>
+					
+					<p>School Name</p>
 					<form>
-						<input type="text" name="school">
+						<input type="text" placeholder="School" id='school' value = "Brooklyn Technical High School">
 					</form>
 					
-					<p> What is your email address? </p>
+					<p>Phone Number</p>
 					<form> 
-						<input type="text" name="email">
+						<input type="number" placeholder="phone number" id='phone' value = 1234567890>
 					</form>
-					
-					<p> What is your phone number? </p>
+
+					<p>Email Address</p>
 					<form> 
-						<input type="text" name="phone number">
+						<input type="text" placeholder="Email" id='email' value = 'samn12samn1@gmail.com'>
 					</form>
-					
+
+					<p>Create a Password</p>
+					<form> 
+						<input type="password" placeholder="Password" id='password' value = 'asdf'>
+					</form>
+
+					<p>Upload profile picture</p>
+					<form> 
+						<div align="center">
+							<a class="select" href="#" style="color:white">
+								Select Image
+							</a>
+						</div>
+
+						<div class="stockimage" align='center'>
+							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
+<!-- 
+							<br>
+
+							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'> -->
+
+						</div>
+					</form>
+
+				    <!-- <p>Upload profile picture</p>
+					<form> 
+						<input type="file" id="profilePhoto">
+					</form> -->
+
+
+					<script> 
+					//Get profile pic
+
+					// function getUrl(url)
+					// {
+					// 	var holdUrl = url;
+					// 	$('#testPhoto').attr('src', holdUrl);
+					// }
+
+					//var holdPic;
+
+					var picProp = {
+						width: 500,
+						height: 500
+					};
+
+					$("a.select").click(
+						function()
+						{
+							forge.file.getImage
+							(
+								picProp, //1st param
+								function (file) //2nd param
+								{
+									forge.file.URL(file, function (url) {
+										$('#profilePhoto').attr('src', url);
+										//getUrl(url);
+										//holdPic = file;
+									} 
+									);
+									
+								}
+							);
+						}	
+					)
+
+					// var uploadPhotoFile = function(file) {
+					// 	forge.request.ajax({
+					// 		url: 'https://api.parse.com/1/files/' + (
+					// 			new Date()).getTime() + '.jpg',
+					// 		headers: {
+					// 			'TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A': config.parseAppId,
+					// 			'FpCmaID2Tj6pRsSbdFItySl3qYAr13Ear0NvEYn9': config.parseRestKey
+					// 		},
+					// 		type: 'POST',
+					// 		files: [file],
+					// 		fileUploadMethod: 'raw',
+					// 		dataType: 'json',
+					// 		success: function (data) {
+					// 			uploadPhotoMetadata(data);
+					// 		},
+					// 		error: function () {
+					// 			alert('Problem uploading photo');
+					// 		}
+					// 	});
+					// };
+
+					</script>
+
 					<div align="center">
-					<a href="terms.html" >
-					<input type="submit" value="   Next   " class="btn">
-					</a>
+					<a href="code.html" class="btn btn-primary btn-large">Back</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#" class="btn btn-primary btn-large" onclick="signUp(); uploadPic();">Next</a>
 					</div>
 					
 				</div>
