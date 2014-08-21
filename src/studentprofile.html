@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script> forge.topbar.show() 
+<head>
+	<script> forge.topbar.show() 
 	forge.topbar.addButton({
-  text: "Edit profile",
-  position: "right"
-}, function () {
-  window.location= "editprofile.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
+		text: "Edit profile",
+		position: "right"
+	}, 
+	function () {
+
+	window.location= "editprofile.html";  
+	forge.topbar.removeButtons();
+	forge.tabbar.removeButtons();
 });
 
-forge.topbar.show() 
+	forge.topbar.show() 
 	forge.topbar.addButton({
-  text: "Log Out",
-  position: "left"
-}, function () {
-  window.location= "index.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
-});
+		text: "Log Out",
+		position: "left"
+	}, function () {
+		window.location= "index.html";
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	});
 
 forge.tabbar.show();
 forge.tabbar.removeButtons();
