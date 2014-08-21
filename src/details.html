@@ -57,49 +57,127 @@
 
 					<p>Name</p>
 					<form> 
-						<input type="text" placeholder="First name" id='firstName'>
+						<input type="text" placeholder="First name" id='firstName' value='Samson'>
 					</form>
 					
 					<form> 
-						<input type="text" placeholder="Last name" id='lastName'>
+						<input type="text" placeholder="Last name" id='lastName' value = 'Leung'>
 					</form>
 					
 					<p>Birthday</p> 
 					<form> 
-						<input type="number" id='birthMonth' placeholder="month"> 
-						<input type="number" id='birthDay' placeholder="day"> 
-						<input type="number" id='birthYear' placeholder="year">
+						<input type="number" id='birthMonth' placeholder="month" value = 10> 
+						<input type="number" id='birthDay' placeholder="day" value = 31> 
+						<input type="number" id='birthYear' placeholder="year" value = 1997>
 					</form>
 					
 					<p>School Name</p>
 					<form>
-						<input type="text" placeholder="School" id='school'>
+						<input type="text" placeholder="School" id='school' value = "Brooklyn Technical High School">
 					</form>
 					
 					<p>Phone Number</p>
 					<form> 
-						<input type="number" placeholder="phone number" id='phone'>
+						<input type="number" placeholder="phone number" id='phone' value = 1234567890>
 					</form>
 
 					<p>Email Address</p>
 					<form> 
-						<input type="text" placeholder="Email" id='email'>
+						<input type="text" placeholder="Email" id='email' value = 'samn12samn1@gmail.com'>
 					</form>
 
 					<p>Create a Password</p>
 					<form> 
-						<input type="password" placeholder="Password" id='password'>
+						<input type="password" placeholder="Password" id='password' value = 'asdf'>
 					</form>
 
 					<p>Upload profile picture</p>
 					<form> 
-						<input type="file" id="profilePhoto">
+						<div align="center">
+							<a class="select" href="#" style="color:white">
+								Select Image
+							</a>
+						</div>
+
+						<div class="stockimage" align='center'>
+							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
+<!-- 
+							<br>
+
+							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'> -->
+
+						</div>
 					</form>
-					
+
+				    <!-- <p>Upload profile picture</p>
+					<form> 
+						<input type="file" id="profilePhoto">
+					</form> -->
+
+
+					<script> 
+					//Get profile pic
+
+					// function getUrl(url)
+					// {
+					// 	var holdUrl = url;
+					// 	$('#testPhoto').attr('src', holdUrl);
+					// }
+
+					//var holdPic;
+
+					var picProp = {
+						width: 500,
+						height: 500
+					};
+
+					$("a.select").click(
+						function()
+						{
+							forge.file.getImage
+							(
+								picProp, //1st param
+								function (file) //2nd param
+								{
+									forge.file.URL(file, function (url) {
+										$('#profilePhoto').attr('src', url);
+										//getUrl(url);
+										//holdPic = file;
+									} 
+									);
+									
+								}
+							);
+						}	
+					)
+
+					// var uploadPhotoFile = function(file) {
+					// 	forge.request.ajax({
+					// 		url: 'https://api.parse.com/1/files/' + (
+					// 			new Date()).getTime() + '.jpg',
+					// 		headers: {
+					// 			'TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A': config.parseAppId,
+					// 			'FpCmaID2Tj6pRsSbdFItySl3qYAr13Ear0NvEYn9': config.parseRestKey
+					// 		},
+					// 		type: 'POST',
+					// 		files: [file],
+					// 		fileUploadMethod: 'raw',
+					// 		dataType: 'json',
+					// 		success: function (data) {
+					// 			uploadPhotoMetadata(data);
+					// 		},
+					// 		error: function () {
+					// 			alert('Problem uploading photo');
+					// 		}
+					// 	});
+					// };
+
+					</script>
+
 					<div align="center">
 					<a href="code.html" class="btn btn-primary btn-large">Back</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#" class="btn btn-primary btn-large" onclick="users();">Next</a>
+					<a href="#" class="btn btn-primary btn-large" onclick="signUp(); uploadPic();">Next</a>
 					</div>
 					
 				</div>

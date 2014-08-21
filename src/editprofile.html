@@ -25,6 +25,7 @@ forge.tabbar.hide()
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
+		<script src="js/parseCode.js"></script>
 		<script type='text/javascript' src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -83,21 +84,25 @@ forge.tabbar.hide()
 			</div>
 			
 			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
+				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg">
 			</div>
 			
 			<div align="center">
-			<a class="select" href="#" style="color:white">
+				<a class="select" href="#" style="color:white">
 					Select Image
 				</a>
 			</div>
-				
-		<script> 
-			 $("a.select").click(function(){
-   forge.file.getImage();
- });
-		</script>
-		
+
+			<script> 
+			$("a.select").click(function(){
+				forge.file.getImage(
+					function (file) {
+						forge.file.URL(file, function (url) {$('#proImg').attr('src', url);} );
+					uploadPhotoFile(file);
+					});
+			})
+			</script>
+
 			<br>
 			<br>
 			<br>
