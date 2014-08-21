@@ -58,7 +58,6 @@ function jobFields()
 
 function signUp()
 {
-    alert(testAlert);
     var user = new Parse.User();
 
     //HTML user account info input
@@ -106,9 +105,60 @@ function signUp()
     }
 }
 
-var testAlert;
-
 //Parse user functionality
+function users()
+{
+    //parse user object
+    var user = new Parse.User();
+
+    //HTML user account info input
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+	var birthMonth = document.getElementById('birthMonth').value - 1;
+    var birthDay = document.getElementById('birthDay').value; 
+    var birthYear = document.getElementById('birthYear').value;  
+       var birth = new Date(birthYear, birthMonth, birthDay) 
+
+    var school = document.getElementById('school').value;
+
+    var phone = document.getElementById('phone').value;
+        phone = parseInt(phone);
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+	user.set("firstName", firstName);
+    user.set("lastName", lastName);
+    user.set("birth", birth);
+    user.set("school", school);
+    user.set("phone", phone);
+    user.set("username", email);
+    user.set("email", email);
+    user.set("password", password);
+
+    user.signUp(null, {
+      success: function(user) 
+      {
+        alert('Signup successful!');
+      },
+        error: function(user, error) 
+      {
+        alert("Error: " + error.code + " " + error.message);
+      } 
+    });
+}
+
+
+var query = new Parse.Query(users);
+query.equalTo();
+query.find({
+	success: function(results) {
+		for (var i = 0; i < results.length; i++) { 
+			var object = results[i];
+			alert("Success");
+			} 
+			}});
+
 function uploadPic()
 {
     var user = new Parse.User();
@@ -119,7 +169,6 @@ function uploadPic()
       var file = fileUpload.files[0];
       var name = "photo.jpg";
       //var file = holdPic;
-     
       var parseFile = new Parse.File(name, file);
     }
 
@@ -128,9 +177,7 @@ function uploadPic()
     }, function(error) {
       alert('The file either could not be read, or could not be saved to Parse');
     });
-
     user.set("profilePic", parseFile);
-
     //Pushes photo to parse
     user.save(null, {
         success: function(user) 
@@ -142,7 +189,6 @@ function uploadPic()
             alert('Failed to save photo ' + error.message);
         }
     });
-
 }
 
 function logIn()
@@ -164,6 +210,8 @@ function logIn()
         }
     });
 }
+
+
 
 //Adding jobs to table
 function addRow(content0,content1,content2)
