@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script> forge.topbar.show() 
+<head>
+	<script> forge.topbar.show() 
 	forge.topbar.addButton({
-  text: "Edit profile",
-  position: "right"
-}, function () {
-  window.location= "editprofile.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
+		text: "Edit profile",
+		position: "right"
+	}, 
+	function () {
+
+	window.location= "editprofile.html";  
+	forge.topbar.removeButtons();
+	forge.tabbar.removeButtons();
 });
 
-forge.topbar.show() 
+	forge.topbar.show() 
 	forge.topbar.addButton({
-  text: "Log Out",
-  position: "left"
-}, function () {
-  window.location= "index.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
-});
+		text: "Log Out",
+		position: "left"
+	}, function () {
+		window.location= "index.html";
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	});
 
 forge.tabbar.show();
 forge.tabbar.removeButtons();
@@ -63,27 +65,6 @@ forge.tabbar.removeButtons();
 				text-align: center;
 				vertical-align: middle;
 			}
-<<<<<<< HEAD
-		</style>
-	</head>
-	<body>
-		<div class="container-narrow">
-			<div class="jumbotron">
-				<h1>Profile</h1>
-			</div>
-			<div class="stockimage" float="left">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
-			</div>
-			<br>
-			<br>
-			<div align="center"> 
-				<form>
-					Name: <input type="text" value="Name"> <br>
-					Email Address: <input type="text" value="Email Address"> <br>
-					Phone Number: <input type="text" value="Phone Number"> <br>
-				</form>
-			</div>
-=======
 			body{
 				background-color: #404040;
 				font-family: "Roboto";
@@ -126,7 +107,6 @@ forge.tabbar.removeButtons();
 				</table>
 			</div>
 
->>>>>>> 3a56d1c5e360346b5ed2979627657aaeecb4890d
 			<hr>
 
 			<div>
