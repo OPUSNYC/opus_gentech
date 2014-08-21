@@ -137,6 +137,28 @@ function uploadPic()
 
 }
 
+function logIn()
+{
+    var user = new Parse.User();
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    Parse.User.logIn(email, password, {
+      success: function(user) {
+        window.location.assign('studentprofile.html');
+         // Do stuff after successful login.
+        },
+      error: function(user, error) {
+        alert("Login Failed");
+        document.getElementById('login').href='#';
+        // The login failed. Check error to see why.
+        }
+    });
+
+
+}
+
 //Adding jobs to table
 function addRow(content0,content1,content2)
 {

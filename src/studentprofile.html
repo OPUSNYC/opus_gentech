@@ -27,7 +27,6 @@ forge.tabbar.removeButtons();
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
-		<script src="js/parseCode.js"></script>
 		<script type='text/javascript' src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -58,7 +57,7 @@ forge.tabbar.removeButtons();
 				height:100px;
 			}
 			.aboutmetext{
-				text-align: center;
+				text-: center;
 			}
 			.btn{
 				text-align: center;
@@ -69,59 +68,78 @@ forge.tabbar.removeButtons();
 				font-family: "Roboto";
 				color: white
 			}
-			h1 , h4{
+			h1 , h3{
 				color:#006ccc;
 			}
-		</style>
-	</head>
-	<body>
-		<div class="container-narrow">
-			<div class="jumbotron">
-				<h1>Profile</h1>
+			.date
+			{
+				font-family: "Roboto";
+				color: gray;
+			}
+			</style>
+		</head>
+
+		<body>
+			<div class="container-narrow">
+				<div class="jumbotron">
+					<h1>Profile</h1>
+				</div>
+
+			<div style="background-color: gray; border-radius:1em">
+				<table>
+					<td style="padding: 5px;">
+						<div class="stockimage">
+							<img src="images/harry.png" alt="avatarimg" class="img-rounded">
+						</div>
+					</td>
+
+					<td>
+						<div>
+							<strong> Name </strong> <br> Harry Potter <br>
+							<strong> Email </strong> <br> harrypotter@hogwarts.com <br>
+							<strong> Phone Number </strong> <br> 123-456-7890 <br>
+							<strong> Rating </strong> <br>
+							 <img src="images/rating.png" alt="rating">
+						</div>
+					</td>
+				</table>
 			</div>
-			
-			<table>
-			<td style="padding: 20px;">
-			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
-			</div>
-			</td>
-			<td>
-			<div>
-				<form>
-					Name: <input type="text" placeholder="Name" style="width:50px;" > <br>
-					Email Address: <input type="text" placeholder="Email Address" style="width:50px;" > <br>
-					Phone Number: <input type="text" placeholder="Phone Number" style="width:50px;"> <br>
-				</form>
-				Rating: <img src="#" alt="rating">
-			</div>
-			</td>
-			</table>
-		
+
 			<hr>
 
-			
-			<div class="span4">
-				<h4> ABOUT ME</h4>
-					<p> Lorem ipsum dolor sit amet, perpetua electram an sea, iudico noluisse adolescens et eos. Debitis salutandi has id, nam modus feugiat persequeris ad. Has et omittam incorrupte. Has vero saperet maiestatis te. Mollis suavitate eu nec, eam volumus verterem molestiae ex.
-Ea per minim sonet appellantur, quo in timeam delenit intellegebat. Est enim mentitum vulputate ne. Omnis animal omnesque eum in. Wisi oporteat eu est, vis molestiae constituto in, graece option voluptua ut eam.
-No justo scriptorem eam, ut lorem oblique copiosae per, tale minim expetendis nec ex. Mea mucius alterum posidonium in. Ex utinam ignota integre eum. Quodsi vivendum disputationi nam in.
-Cu vim tation petentium. Ut doctus timeam ius. Et agam choro phaedrum qui. Alterum ocurreret signiferumque mei ut, omnis conceptam conclusionemque sea ne, ei persius veritus sea. </p>
+			<div>
+				<h3>ABOUT ME</h3>
+					<p>
+						Hello, my name is Harry Potter and I am a student at Hogwarts School of Witchcraft and Wizardry. I am on the Quidditch team as the Seeker and have been one since first joining the team. 
+						I excel in all my classes and my teachers can testify to this. I enjoy reading books in my spare time and trying out new spells. 
+					</p>
 			</div>
 			
-			<div class="span4" align="justify">
-					<h4> Past jobs </h4> 
-				<ul> 
-				<li> Job one </li>
-				<li> Job two  </li> 
-				<li> Job three </li> 
-				</ul>
-				</div>
-						
-				<br>
-				<br>
-				
+			<hr>
+
+			<div>
+				<h3>EXPERIENCE</h3>
+					<h4>Wizardry Preparatory School</h4>
+					<h4 class = "date">April 2013</h4>
+						<p>
+							Proctored a class of 8th grade wizards as a teacher assistant. Handed out test booklets and responded to the needs of students. Assisted with grading tests and making score reports on Microsoft Excel. 
+						</p>
+
+					<br>
+
+					<h4>Stocking Potions</h4>
+					<h4 class = "date">July 2013</h4>
+						<p>
+							Worked at Haggard's shed for a week, three hours a day stocking
+							the potion shelf. Responsibilities included keeping bottles organized, taking inventory, and replacing shattered bottles.
+						</p>
+
+					<h4>Hogwart Quidditch Team </h4>
+					<h4 class = "date">September 2013</h4>
+						<p>
+							Repairing damaged brooms and sorting quidditch balls for upcoming games. Worked as a team assistant in recording match scores and results. Assisting the team for the upcoming season by surveying players on needed equipment.
+						</p>
 			</div>
 
-</body>
+		</body>
 		</html>
