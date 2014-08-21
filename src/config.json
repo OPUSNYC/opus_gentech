@@ -46,17 +46,10 @@
 		"topbar": {
 			"version": "2.4"
 		},
-<<<<<<< HEAD
 		"file": {
 			"version": "2.4"
 		},
 		"tabbar": {
-=======
-		"tabbar": {
-			"version": "2.4"
-		},
-		"file": {
->>>>>>> 3a56d1c5e360346b5ed2979627657aaeecb4890d
 			"version": "2.4"
 		}
 	}
