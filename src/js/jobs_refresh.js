@@ -48,3 +48,5 @@ query.find({
 		}	
 });
 }
+
+getJobs();

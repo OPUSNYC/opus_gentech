@@ -28,6 +28,7 @@ forge.tabbar.removeButtons();
 		<script type='text/javascript' src="js/bootstrap.js"></script>
 		<script type='text/javascript' src='js/parse.js'></script>
 		<script src="js/parseCode.js"></script>
+		<script type='text/javascript' src='js/profile.js'></script>
 		<script type='text/javascript' src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -81,21 +82,19 @@ forge.tabbar.removeButtons();
 			</div>
 			
 			<table>
-			<td style="padding: 20px;">
-			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
-			</div>
-			</td>
-			<td>
-			<div>
-				<form>
-					Name: <input type="text" placeholder="Name" style="width:50px;" > <br>
-					Email Address: <input type="text" placeholder="Email Address" style="width:50px;" > <br>
-					Phone Number: <input type="text" placeholder="Phone Number" style="width:50px;"> <br>
-				</form>
-				Rating: <img src="#" alt="rating">
-			</div>
-			</td>
+				<td style="padding: 20px;">
+					<div class="stockimage">
+						<img src="images/avatar.png" alt="avatarimg" class="img-rounded">
+					</div>
+				</td>
+				<td>
+					<div>
+						Name: <p id="firstName"> <p id="lastName"> </p> <br>
+						Email Address: <p id="email"> </p></script> <br>
+						Phone Number: <p id="phone"></p> </script> <br>
+						<!--- Rating: <img src="#" alt="rating"> --->
+					</div>
+				</td>
 			</table>
 		
 			<hr>
