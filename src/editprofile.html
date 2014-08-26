@@ -3,11 +3,11 @@
 	<head>
 		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
 		<script type='text/javascript' src="js/bootstrap.js"></script>
-		<script type='text/javascript' src='js/parse.js'></script>
-		<script type='text/javascript' src="js/parseCode.js"></script>
 		<script type='text/javascript' src="js/main.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+		<script type='text/javascript' src='js/parse.js'></script>
+		<script type='text/javascript' src="js/parseCode.js"></script>
 		<style type="text/css">
 			.container-narrow {
 				margin: 0 auto;
@@ -55,24 +55,26 @@
 				color:#006ccc;
 			}
 		</style>
-		<script> forge.topbar.show() 
+		<script> 
+		forge.topbar.show() 
 		forge.topbar.addButton({
-  text: "Cancel",
-  position: "left"
-}, function () {
-  window.location= "studentprofile.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
-}); 
+		text: "Cancel",
+		position: "left"
+	}, function () {
+		window.location.assign("studentprofile.html");
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	}); 
 
-forge.topbar.addButton({
-  text: "Save",
-  position: "right"
-}, function () {
-  window.location= "studentprofile.html";
-  forge.topbar.removeButtons();
-  forge.tabbar.removeButtons();
-});
+		forge.topbar.addButton({
+		text: "Save",
+		position: "right"
+	}, function () {
+		window.location.assign("studentprofile.html");
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+		update();
+}	);
 
 forge.tabbar.hide()
 </script>
@@ -130,21 +132,22 @@ forge.tabbar.hide()
 							<td> <input type="text" id="firstName" style="width:100px;"> <input type="text" id="lastName" style="width:100px;"> </td>	
 						</tr>
 						<tr>
-							<td align="left">Phone #:</td>
-							<td><input type="number" id="phone" style="width:75px;"/></td>
+							<td align="left">Phone</td>
+							<td align="right"><input type="number" id="phone" /></td>
 						</td>
 						<tr>
-							<td align="left">Email :</td>
-							<td><input type="text" id="email" style="width:75px;" /></td>
+							<td align="left">Email</td>
+							<td align="right"><input type="text" id="email" /></td>
 						</td>
 					</table>
 					</form>
-				</div>				
-			<div class="aboutmetext">
-			<h2>About Me</h2>
-			<form>
-			<input type="text" name="textfield" width="500" height="500" />
-			</form>
-			</div>
+				</div>
+
+				<div class="aboutmetext">
+					<h2>About Me</h2>
+					<form>
+						<input type="text" name="textfield" width="500" height="500" />
+					</form>
+				</div>	
 			</body>
 		</html>

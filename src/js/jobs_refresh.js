@@ -17,21 +17,25 @@ query.find({
 			cell2 = document.createElement("td");
 			cell3 = document.createElement("td");
 			cell4 = document.createElement("td");
+			cell5 = document.createElement("td");
 
 			textnode1=document.createTextNode(object.get('type'));
 			textnode2=document.createTextNode(object.get('company'));
 			textnode3=document.createTextNode(object.get('name'));
 			textnode4=document.createTextNode(object.get('pay'));
-
+			textnode5=document.createTextNode(object.get('Apply'));
+			
 			cell1.appendChild(textnode1);
 			cell2.appendChild(textnode2);
 			cell3.appendChild(textnode3);
 			cell4.appendChild(textnode4);
+			cell5.appendChild(textnode5);
 
 			row.appendChild(cell1);
 			row.appendChild(cell2);
 			row.appendChild(cell3);
 			row.appendChild(cell4);
+			row.appendChild(cell5);
 
 			tabBody.appendChild(row); 
 		};
