@@ -96,28 +96,10 @@ forge.tabbar.hide()
 			<script> 
 			$("a.select").click(function(){
 				forge.file.getImage(
-					function (file) {forge.file.URL(file, 
-						function (url) {
-						$('#proImg').attr('src', url); //.prepend($('&lt;img&gt;')
-					});
+					function (file) {
+						forge.file.URL(file, function (url) {$('#proImg').attr('src', url);} );
 					uploadPhotoFile(file);
-				});
-				// console.log("running");
-				// forge.file.getImage( 
-
-				// 	function(file)  
-				// 	{
-				// 		console.log(file);
-				// 		console.log("success...");
-				// 	},
-
-				// 	function(content)
-				// 	{
-				// 		console.log(content);
-				// 		console.log("error...")
-				// 	}
-
-				// );
+					});
 			})
 			</script>
 
@@ -129,26 +111,29 @@ forge.tabbar.hide()
 					<form>
 					<table>
 						<tr>
-							<td align="left">Name:</td>
+							<td align="left">Name</td>
 							<td align="right"><input type="text" name="fullname" /></td>
 						</tr>
 						<tr>
-							<td align="left">Phone #:</td>
+							<td align="left">Phone</td>
 							<td align="right"><input type="number" name="pnumber" /></td>
 						</td>
 						<tr>
-							<td align="left">Email :</td>
+							<td align="left">Email</td>
 							<td align="right"><input type="text" name="email" /></td>
 						</td>
 					</table>
 					</form>
 				</div>
-			</body>
-			<div class="aboutmetext">
-			<h2>About Me</h2>
-			<form>
-			<input type="text" name="textfield" width="500" height="500" />
-			</form>
-			</div>
 
+				<div class="aboutmetext">
+					<h2>About Me</h2>
+					<form>
+						<input type="text" name="textfield" width="500" height="500" />
+					</form>
+				</div>	
+
+				<a href="#" class="btn btn-primary btn-large" onclick="">Save</a>
+
+			</body>
 		</html>

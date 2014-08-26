@@ -54,10 +54,9 @@ function jobFields()
     jobQuery();
 }
 
-//Parse user functionality
-function users()
+function signUp()
 {
-    //parse user object
+    alert(testAlert);
     var user = new Parse.User();
 
     //HTML user account info input
@@ -67,7 +66,7 @@ function users()
     var birthMonth = document.getElementById('birthMonth').value - 1;
     var birthDay = document.getElementById('birthDay').value; 
     var birthYear = document.getElementById('birthYear').value;  
-        var birth = new Date(birthYear, birthMonth, birthDay) 
+    var birth = new Date(birthYear, birthMonth, birthDay) 
 
     var school = document.getElementById('school').value;
 
@@ -76,8 +75,9 @@ function users()
 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var reEnter = document.getElementById('reEnter').value;
 
-	user.set("firstName", firstName);
+    user.set("firstName", firstName);
     user.set("lastName", lastName);
     user.set("birth", birth);
     user.set("school", school);
@@ -86,40 +86,52 @@ function users()
     user.set("email", email);
     user.set("password", password);
 
-    user.signUp(null, {
-      success: function(user) 
-      {
-        alert('Signup successful!');
-      },
-        error: function(user, error) 
-      {
-        alert("Error: " + error.code + " " + error.message);
-      } 
-    });
+    if(password == reEnter)
+    {
+        user.signUp(null, {
+          success: function(user) 
+          {
+            alert('Signup successful!');
+          },
+          error: function(user, error) 
+          {
+            alert("Error: " + error.code + " " + error.message);
+          } 
+        });
+    }
+    else
+    {
+        alert('Passwords do not match. Please try again.');
+    }
+}
 
-    //Uploading photo to parse
+//Parse user functionality
+function uploadPic()
+{
+    var user = new Parse.User();
+
+	//Uploading photo to parse
     var fileUpload = $("#profilePhoto")[0];
     if (fileUpload.files.length > 0) 
     {
       var file = fileUpload.files[0];
-      var name = "photo.jpg";
-     
+      var name = "photo.jpg";  
       var parseFile = new Parse.File(name, file);
     }
 
     parseFile.save().then(function() {
-      //alert('File uploaded!'); too many popups
+      alert('File uploaded!'); 
     }, function(error) {
       alert('The file either could not be read, or could not be saved to Parse');
     });
 
     user.set("profilePic", parseFile);
 
-    //Pushes to parse
+    //Pushes photo to parse
     user.save(null, {
         success: function(user) 
         {
-            //alert("Photo saved!"); too many popups
+            alert("Photo saved!"); 
         },
         error: function(user, error) 
         {
@@ -129,17 +141,27 @@ function users()
 
 }
 
-//For testing
-function testFunc()
+function logIn()
 {
-    var hello = 'hello';
-}
+    var user = new Parse.User();
 
-function testFunc2(hello)
-{
-    alert(hello);
-}
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
 
+    Parse.User.logIn(email, password, {
+      success: function(user) {
+        window.location.assign('studentprofile.html');
+         // Do stuff after successful login.
+        },
+      error: function(user, error) {
+        alert("Login Failed \n Incorrect email or password");
+        document.getElementById('login').href='#';
+        // The login failed. Check error to see why.
+        }
+    });
+
+
+}
 
 //Adding jobs to table
 function addRow(content0,content1,content2)
