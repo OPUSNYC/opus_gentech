@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<script> forge.topbar.show() 
-	forge.topbar.addButton({
-		text: "Edit profile",
-		position: "right"
-	}, 
-	function () {
+		<head>
+			<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+			<meta content="utf-8" http-equiv="encoding">
 
-	window.location= "editprofile.html";  
-	forge.topbar.removeButtons();
-	forge.tabbar.removeButtons();
-});
+			<script> 
+				forge.topbar.show() 
+				forge.topbar.addButton({
+					text: "Edit profile",
+					position: "right"
+				}, 
+				function () {
 
-	forge.topbar.show() 
-	forge.topbar.addButton({
-		text: "Log Out",
-		position: "left"
-	}, function () {
-		window.location= "index.html";
-		forge.topbar.removeButtons();
-		forge.tabbar.removeButtons();
-	});
+					window.location= "editprofile.html";  
+					forge.topbar.removeButtons();
+					forge.tabbar.removeButtons();
+				});
 
-forge.tabbar.show();
-forge.tabbar.removeButtons();
-</script>
-		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
-		<script type='text/javascript' src="js/bootstrap.js"></script>
-		<script type='text/javascript' src='js/parse.js'></script>
-		<script src="js/parseCode.js"></script>
-		<script type='text/javascript' src="js/main.js"></script>
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
-		<style type="text/css">
-			.container-narrow {
-				margin: 0 auto;
-				max-width: 700px;
-				padding: 20px;
-			}
-			.container-narrow > hr {
-				margin: 30px 0;
-			}
+				forge.topbar.show() 
+				forge.topbar.addButton({
+					text: "Log Out",
+					position: "left"
+				}, function () {
+					window.location= "index.html";
+					forge.topbar.removeButtons();
+					forge.tabbar.removeButtons();
 
-			.jumbotron {
-				margin: 60px 0;
-				text-align: center;
-			}
-			.jumbotron h1 {
-				font-size: 50px;
-				line-height: 1;
-			}
+					//Clears current user
+					Parse.User.logOut();
+			 		var currentUser = Parse.User.current();  // this will now be null
+			 	});
 
-			p {
-				font-size: 1.2em;
-			}
-			.stockimage{
-				width:100px;
-				height:100px;
-			}
-			.aboutmetext{
-				text-: center;
-			}
-			.btn{
-				text-align: center;
-				vertical-align: middle;
-			}
-			body{
-				background-color: #404040;
-				font-family: "Roboto";
-				color: white
-			}
-			h1 , h3{
-				color:#006ccc;
-			}
-			.date
-			{
-				font-family: "Roboto";
-				color: gray;
-			}
+				forge.tabbar.show();
+				forge.tabbar.removeButtons();
+			</script>
+
+			<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+			<script type='text/javascript' src="js/bootstrap.js"></script>
+			<script type='text/javascript' src='js/parse.js'></script>
+			<script src="js/parseCode.js"></script>
+			<script type='text/javascript' src="js/main.js"></script>
+			<link href="css/bootstrap.css" rel="stylesheet">
+			<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+			<style type="text/css">
+				.container-narrow {
+					margin: 0 auto;
+					max-width: 700px;
+					padding: 20px;
+				}
+				.container-narrow > hr {
+					margin: 30px 0;
+				}
+
+				.jumbotron {
+					margin: 60px 0;
+					text-align: center;
+				}
+				.jumbotron h1 {
+					font-size: 50px;
+					line-height: 1;
+				}
+
+				p {
+					font-size: 1.2em;
+				}
+				.stockimage{
+					width:100px;
+					height:100px;
+				}
+				.aboutmetext{
+					text-: center;
+				}
+				.btn{
+					text-align: center;
+					vertical-align: middle;
+				}
+				body{
+					background-color: #404040;
+					font-family: "Roboto";
+					color: white
+				}
+				h1 , h3{
+					color:#006ccc;
+				}
+				.date
+				{
+					font-family: "Roboto";
+					color: gray;
+				}
 			</style>
 		</head>
 
@@ -92,15 +101,15 @@ forge.tabbar.removeButtons();
 				<table>
 					<td style="padding: 5px;">
 						<div class="stockimage">
-							<img src="images/harry.png" alt="avatarimg" class="img-rounded">
+							<img src="images/harry.png" alt="avatarimg" class="img-rounded" id='profilePic'>
 						</div>
 					</td>
 
 					<td>
 						<div>
-							<strong> Name </strong> <br> Harry Potter <br>
-							<strong> Email </strong> <br> harrypotter@hogwarts.com <br>
-							<strong> Phone Number </strong> <br> 123-456-7890 <br>
+							<strong> Name </strong> <br> <p id='name'></p> <br>
+							<strong> Email </strong> <br> <p id='email'></p> <br>
+							<strong> Phone Number </strong> <br> <p id='phone'></p> <br>
 							<strong> Rating </strong> <br>
 							<img src="images/rating.png" alt="rating">
 						</div>
@@ -143,6 +152,13 @@ forge.tabbar.removeButtons();
 							Repairing damaged brooms and sorting quidditch balls for upcoming games. Worked as a team assistant in recording match scores and results. Assisting the team for the upcoming season by surveying players on needed equipment.
 						</p>
 			</div>
+
+			<script>
+				window.onload = function()
+				{
+					loadUser();
+				}
+			</script>
 
 		</body>
 		</html>
