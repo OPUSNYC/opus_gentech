@@ -86,6 +86,29 @@ function signUp()
     user.set("email", email);
     user.set("password", password);
 
+    //Profile Picture upload
+    var fileData = {base64: globalString};
+    var parseFile = new Parse.File('photo.jpg', fileData, 'image/jpg');
+
+    parseFile.save().then(function() {
+        alert('File saved to parseFile!'); 
+    }, function(error) {
+        alert('Could not save: ' + error);
+    });
+
+    user.set("profilePic", parseFile);
+    //Pushes photo to parse
+    user.save(null, {
+        success: function(user) 
+        {
+            alert("Photo saved!"); 
+        },
+        error: function(user, error) 
+        {
+            alert('Failed to save photo ' + error.message);
+        }
+    });
+
     if(password == reEnter)
     {
         user.signUp(null, {
@@ -158,7 +181,6 @@ function uploadPic()
     {
       var file = fileUpload.files[0];
       var name = "photo.jpg";
-      //var file = holdPic;
       var parseFile = new Parse.File(name, file);
     }
 

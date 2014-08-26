@@ -57,11 +57,11 @@
 
 					<p>Name</p>
 					<form> 
-						<input type="text" placeholder="First Name" id='firstName' value='samson'>
+						<input type="text" placeholder="First Name" id='firstName' value='Samon'>
 					</form>
 					
 					<form> 
-						<input type="text" placeholder="Last Name" id='lastName' value='leung'>
+						<input type="text" placeholder="Last Name" id='lastName' value='Leung'>
 					</form>
 					
 					<p>Birthday</p> 
@@ -73,12 +73,12 @@
 					
 					<p>School Name</p>
 					<form>
-						<input type="text" placeholder="School" id='school' value='bths'>
+						<input type="text" placeholder="School" id='school' value='Brooklyn Technical High School'>
 					</form>
 					
 					<p>Phone Number</p>
 					<form> 
-						<input type="number" placeholder="Phone Number" id='phone' value='1234567890'>
+						<input type="number" placeholder="Phone Number" id='phone' value=1234567890>
 					</form>
 
 					<p>Email Address</p>
@@ -99,25 +99,18 @@
 					<p>Upload profile picture</p>
 					<form> 
 						<div align="center">
-							<a id="select" href="#" style="color:white">
-								Select Image
-							</a>
+							<a id="select" href="#" style="color:white">Select Image</a>
 						</div>
 
 						<div class="stockimage" align='center'>
 							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
-					<!-- 
-							<br>
-
-							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'> -->
-
-						</div>
+						</div>	
 					</form>
 
-				     <p>Upload profile picture</p>
+<!-- 				     <p>Upload profile picture</p>
 					<form> 
 						<input type="file" id="profilePhoto">
-					</form> 
+					</form>  -->
 
 
 					<script> 
@@ -129,7 +122,87 @@
 					// 	$('#testPhoto').attr('src', holdUrl);
 					// }
 
-					//var holdPic;
+					function displayPic(file)
+					{
+						forge.file.URL(file, function (url) {
+							$('#profilePhoto').attr('src', url);
+							convert64(file);
+							//alert(JSON.stringify(file)); Not needed
+							//savePic(url);
+						});
+					}
+
+				//Convert file to base64 for upload to parse
+					var globalString;
+					function convert64(file)
+					{
+						forge.file.base64(
+							file, //1st param
+							function (base64String)//2nd param
+							{
+								alert('64String success');
+								globalString = base64String;
+							},
+							function (error)//3rd param
+							{
+								alert('No 64 String');
+							}
+						);
+					}
+
+				//Pushes parseFile object to Parse
+					function upload64()
+					{
+						var user = new Parse.User();
+						var fileData = {base64: globalString};
+
+						var parseFile = new Parse.File('photo.jpg', fileData, 'image/jpg');
+
+						parseFile.save().then(function() {
+							alert('File saved to parseFile!'); 
+						}, function(error) {
+							alert('Could not save: ' + error);
+						});
+
+						user.set("profilePic", parseFile);
+					    //Pushes photo to parse
+					    user.save(null, {
+					    	success: function(user) 
+					    	{
+					    		alert("Photo saved!"); 
+					    	},
+					    	error: function(user, error) 
+					    	{
+					    		alert('Failed to save photo ' + error.message);
+					    	}
+					    });
+					}
+
+				//Caching picture from internal URL does not work
+					// function savePic(url)
+					// {
+					// 	forge.file.cacheURL(
+					// 		url, //1st param
+					// 		function (file) //2nd param
+					// 		{
+					// 			forge.file.isFile(
+					// 				file, //1st param
+					// 				function (isFile) //2nd param
+					// 				{
+					// 					alert('File still exists!')
+					// 				},
+					// 				function (error)
+					// 				{
+					// 					alert('File not exist!')
+					// 				}
+					// 			);
+					// 		}, 
+					// 		function (error) //3rd param
+					// 		{
+					// 			alert('savePic error')
+					// 		}
+					// 	);
+					// }
 
 					var picProp = {
 						width: 500,
@@ -143,50 +216,16 @@
 							(
 								picProp, //1st param
 								function (file) //2nd param
-								{
-									var parseFile = new Parse.File('photo.jpg', file);
-
-									parseFile.save().then(function(){
-											alert('success')
-										},
-											function(){ alert('error')}
-										)
-									
-									alert(parseFile.url())
-									
-									forge.file.URL(file, function (url) {
-										$('#profilePhoto').attr('src', url);
-									})
+								{	
+									displayPic(file);
 								},
-								function(error) //3rd param
+								function (error) //3rd param
 								{
-									alert('getting the error: ' + error);
+									alert('Click Error: ' + error);
 								}
 							);
 						}	
 					)
-
-					// var uploadPhotoFile = function(file) {
-					// 	forge.request.ajax({
-					// 		url: 'https://api.parse.com/1/files/' + (
-					// 			new Date()).getTime() + '.jpg',
-					// 		headers: {
-					// 			'TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A': config.parseAppId,
-					// 			'FpCmaID2Tj6pRsSbdFItySl3qYAr13Ear0NvEYn9': config.parseRestKey
-					// 		},
-					// 		type: 'POST',
-					// 		files: [file],
-					// 		fileUploadMethod: 'raw',
-					// 		dataType: 'json',
-					// 		success: function (data) {
-					// 			uploadPhotoMetadata(data);
-					// 		},
-					// 		error: function () {
-					// 			alert('Problem uploading photo');
-					// 		}
-					// 	});
-					// };
-
 					</script>
 
 					<div align="center">
