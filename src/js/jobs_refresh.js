@@ -32,7 +32,6 @@ query.find({
 			a.appendChild(linkText);
 			a.title = "Apply";
 			a.href = object.get('Apply');
-			
 			//textnode5=document.createTextNode(a);
 			
 			cell1.appendChild(textnode1);
@@ -64,3 +63,7 @@ query.find({
 }
 
 getJobs();
+
+
+//a.onclick=function(){forge.topbar.removeButtons()};
+//a.addEventListener("click", forge.topbar.removeButtons());

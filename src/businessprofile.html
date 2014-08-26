@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script> forge.topbar.show() 
+	<script> 
+	forge.topbar.removeButtons() 
 	forge.topbar.addButton({
-		text: "Edit profile",
+		text: "Apply",
 		position: "right"
 	}, 
 	function () {
 
-	window.location= "editprofile.html";  
+	window.location= "apply_success.html";  
 	forge.topbar.removeButtons();
 	forge.tabbar.removeButtons();
 });
-
-	forge.topbar.show() 
 	forge.topbar.addButton({
-		text: "Log Out",
+		text: "Back",
 		position: "left"
 	}, function () {
-		window.location= "index.html";
+		window.location= "jobs.html";
 		forge.topbar.removeButtons();
 		forge.tabbar.removeButtons();
 	});
@@ -98,8 +97,8 @@ forge.tabbar.removeButtons();
 
 					<td>
 						<div>
-							<strong> Name </strong> <br> Harry Potter <br>
-							<strong> Email </strong> <br> harrypotter@hogwarts.com <br>
+							<strong> Company </strong> <br> COMPANY NAME<br>
+							<strong> Email </strong> <br> EMAIL <br>
 							<strong> Phone Number </strong> <br> 123-456-7890 <br>
 							<strong> Rating </strong> <br>
 							<img src="images/rating5.png" alt="rating">
@@ -111,37 +110,21 @@ forge.tabbar.removeButtons();
 			<hr>
 
 			<div>
-				<h3>ABOUT ME</h3>
+				<h3>ABOUT</h3>
 					<p>
-						Hello, my name is Harry Potter and I am a student at Hogwarts School of Witchcraft and Wizardry. I am on the Quidditch team as the Seeker and have been one since first joining the team. 
-						I excel in all my classes and my teachers can testify to this. I enjoy reading books in my spare time and trying out new spells. 
+						ABOUT COMPANY
 					</p>
 			</div>
 			
 			<hr>
 
 			<div>
-				<h3>EXPERIENCE</h3>
-					<h4>Wizardry Preparatory School</h4>
-					<h4 class = "date">April 2013</h4>
+					<h4>JOB TITLE</h4>
 						<p>
-							Proctored a class of 8th grade wizards as a teacher assistant. Handed out test booklets and responded to the needs of students. Assisted with grading tests and making score reports on Microsoft Excel. 
+						about the freaking job
 						</p>
 
 					<br>
-
-					<h4>Stocking Potions</h4>
-					<h4 class = "date">July 2013</h4>
-						<p>
-							Worked at Haggard's shed for a week, three hours a day stocking
-							the potion shelf. Responsibilities included keeping bottles organized, taking inventory, and replacing shattered bottles.
-						</p>
-
-					<h4>Hogwart Quidditch Team </h4>
-					<h4 class = "date">September 2013</h4>
-						<p>
-							Repairing damaged brooms and sorting quidditch balls for upcoming games. Worked as a team assistant in recording match scores and results. Assisting the team for the upcoming season by surveying players on needed equipment.
-						</p>
 			</div>
 
 		</body>
