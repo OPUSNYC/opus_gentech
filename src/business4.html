@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script> 
+	forge.topbar.removeButtons() 
+	forge.topbar.addButton({
+		text: "Apply",
+		position: "right"
+	}, 
+	function () {
+
+	window.location= "apply_success.html";  
+	forge.topbar.removeButtons();
+	forge.tabbar.removeButtons();
+});
+	forge.topbar.addButton({
+		text: "Back",
+		position: "left"
+	}, function () {
+		window.location= "jobs.html";
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	});
+
+forge.tabbar.show();
+forge.tabbar.removeButtons();
+</script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
+		<script type='text/javascript' src='js/parse.js'></script>
+		<script src="js/parseCode.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 20px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+
+			.jumbotron {
+				margin: 60px 0;
+				text-align: center;
+			}
+			.jumbotron h1 {
+				font-size: 50px;
+				line-height: 1;
+			}
+
+			p {
+				font-size: 1.2em;
+			}
+			.stockimage{
+				width:100px;
+				height:100px;
+			}
+			.aboutmetext{
+				text-: center;
+			}
+			.btn{
+				text-align: center;
+				vertical-align: middle;
+			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+				color: white
+			}
+			h1 , h3, h4{
+				color:#006ccc;
+			}
+			.date
+			{
+				font-family: "Roboto";
+				color: gray;
+			}
+			</style>
+		</head>
+
+		<body>
+			<div class="container-narrow">
+				<div class="jumbotron">
+					<h1>Profile</h1>
+				</div>
+
+			<div style="background-color: gray; border-radius:1em">
+				<table>
+					<td style="padding: 5px;">
+						<div class="stockimage">
+							<img src="images/paullogo.png" alt="avatarimg" class="img-rounded">
+						</div>
+					</td>
+
+					<td>
+						<div>
+							<strong> Company </strong> <br> Paul Auto & Home Electronics<br>
+							<strong> Email </strong> <br> EMAIL <br>
+							<strong> Phone Number </strong> <br> 123-456-7890 <br>
+							<strong> Rating </strong> <br>
+							<img src="images/rating4_5.png" alt="rating">
+						</div>
+					</td>
+				</table>
+			</div>
+			
+			<hr>
+
+			<div>
+				<h3>ABOUT</h3>
+					<p>
+						Paul Auto has been around for over 20 years. We aim to provide the best prices that we can, and also professional grade installation for any of our services.
+	<br>
+Services available: <br>
+Auto Security Alarm systems/Remote Starters <br>
+Sound systems(Head units/radios,  speakers, amplifiers, etc.) <br>
+Auto locksmith (Cut/Copy car keys and programming them) <br>
+Lost key? No problem, just bring proof of ownership(Title, insurance card, or registration card with driver’s license) <br>
+Window/headlight/taillight tinting <br>
+GPS units/Backup cameras <br>
+HID installation <br>
+					</p>
+			</div>
+			
+			<hr>
+
+			<div>
+					<h4>Retail</h4>
+						<p>
+						We are looking for someone to help use with our customers and manage the front desk. This includes answering calls and logging some data
+						</p>
+			</div>
+
+		</body>
+		</html>
