@@ -326,3 +326,7 @@ select[multiple="multiple"].ezSelectEditor{ height:35px; }
 }
 .sort-arrow.descending{	background-image:url("TF_Themes/downsimple.png"); }
 .sort-arrow.ascending{ background-image:url("TF_Themes/upsimple.png"); }
+
+a {
+	color:white;};
+	

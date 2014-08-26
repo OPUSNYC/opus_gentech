@@ -23,13 +23,22 @@ query.find({
 			textnode2=document.createTextNode(object.get('company'));
 			textnode3=document.createTextNode(object.get('name'));
 			textnode4=document.createTextNode(object.get('pay'));
-			textnode5=document.createTextNode(object.get('Apply'));
+			
+			var str = "Apply"
+			var result = str.link(object.get('Apply'))
+			
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Apply");
+			a.appendChild(linkText);
+			a.title = "Apply";
+			a.href = object.get('Apply');
+			//textnode5=document.createTextNode(a);
 			
 			cell1.appendChild(textnode1);
 			cell2.appendChild(textnode2);
 			cell3.appendChild(textnode3);
 			cell4.appendChild(textnode4);
-			cell5.appendChild(textnode5);
+			cell5.appendChild(a);
 
 			row.appendChild(cell1);
 			row.appendChild(cell2);
@@ -54,3 +63,7 @@ query.find({
 }
 
 getJobs();
+
+
+//a.onclick=function(){forge.topbar.removeButtons()};
+//a.addEventListener("click", forge.topbar.removeButtons());
