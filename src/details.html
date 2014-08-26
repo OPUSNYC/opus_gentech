@@ -114,21 +114,12 @@
 
 
 					<script> 
-					//Get profile pic
-
-					// function getUrl(url)
-					// {
-					// 	var holdUrl = url;
-					// 	$('#testPhoto').attr('src', holdUrl);
-					// }
-
+				//Displays photo on phone for review
 					function displayPic(file)
 					{
 						forge.file.URL(file, function (url) {
 							$('#profilePhoto').attr('src', url);
 							convert64(file);
-							//alert(JSON.stringify(file)); Not needed
-							//savePic(url);
 						});
 					}
 
@@ -140,7 +131,7 @@
 							file, //1st param
 							function (base64String)//2nd param
 							{
-								alert('64String success');
+								//alert('64String success');
 								globalString = base64String;
 							},
 							function (error)//3rd param
@@ -148,34 +139,6 @@
 								alert('No 64 String');
 							}
 						);
-					}
-
-				//Pushes parseFile object to Parse
-					function upload64()
-					{
-						var user = new Parse.User();
-						var fileData = {base64: globalString};
-
-						var parseFile = new Parse.File('photo.jpg', fileData, 'image/jpg');
-
-						parseFile.save().then(function() {
-							alert('File saved to parseFile!'); 
-						}, function(error) {
-							alert('Could not save: ' + error);
-						});
-
-						user.set("profilePic", parseFile);
-					    //Pushes photo to parse
-					    user.save(null, {
-					    	success: function(user) 
-					    	{
-					    		alert("Photo saved!"); 
-					    	},
-					    	error: function(user, error) 
-					    	{
-					    		alert('Failed to save photo ' + error.message);
-					    	}
-					    });
 					}
 
 				//Caching picture from internal URL does not work

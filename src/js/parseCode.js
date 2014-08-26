@@ -86,28 +86,18 @@ function signUp()
     user.set("email", email);
     user.set("password", password);
 
-    //Profile Picture upload
+    // START Profile Picture upload
     var fileData = {base64: globalString};
     var parseFile = new Parse.File('photo.jpg', fileData, 'image/jpg');
 
     parseFile.save().then(function() {
-        alert('File saved to parseFile!'); 
+        //alert('File saved to parseFile!'); 
     }, function(error) {
         alert('Could not save: ' + error);
     });
 
     user.set("profilePic", parseFile);
-    //Pushes photo to parse
-    user.save(null, {
-        success: function(user) 
-        {
-            alert("Photo saved!"); 
-        },
-        error: function(user, error) 
-        {
-            alert('Failed to save photo ' + error.message);
-        }
-    });
+    // END Profile Picture upload
 
     if(password == reEnter)
     {
@@ -171,37 +161,38 @@ query.find({
 			} 
 			}});
 */
-			
-function uploadPic()
-{
-    var user = new Parse.User();
-	//Uploading photo to parse
-    var fileUpload = $("#profilePhoto")[0];
-    if (fileUpload.files.length > 0) 
-    {
-      var file = fileUpload.files[0];
-      var name = "photo.jpg";
-      var parseFile = new Parse.File(name, file);
-    }
+		
+        //RESERVED FOR BROWSER FUNCTIONALITY	
+// function uploadPic()
+// {
+//     var user = new Parse.User();
+// 	//Uploading photo to parse
+//     var fileUpload = $("#profilePhoto")[0];
+//     if (fileUpload.files.length > 0) 
+//     {
+//       var file = fileUpload.files[0];
+//       var name = "photo.jpg";
+//       var parseFile = new Parse.File(name, file);
+//     }
 
-    parseFile.save().then(function() {
-      alert('File uploaded!'); 
-    }, function(error) {
-      alert('The file either could not be read, or could not be saved to Parse');
-    });
-    user.set("profilePic", parseFile);
-    //Pushes photo to parse
-    user.save(null, {
-        success: function(user) 
-        {
-            alert("Photo saved!"); 
-        },
-        error: function(user, error) 
-        {
-            alert('Failed to save photo ' + error.message);
-        }
-    });
-}
+//     parseFile.save().then(function() {
+//       //alert('File uploaded!'); 
+//     }, function(error) {
+//       alert('The file either could not be read, or could not be saved to Parse');
+//     });
+//     user.set("profilePic", parseFile);
+//     //Pushes photo to parse
+//     user.save(null, {
+//         success: function(user) 
+//         {
+//             //alert("Photo saved!"); 
+//         },
+//         error: function(user, error) 
+//         {
+//             alert('Failed to save photo ' + error.message);
+//         }
+//     });
+// }
 
 
 //for index.html (Logging in)
