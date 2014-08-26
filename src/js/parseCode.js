@@ -105,8 +105,6 @@ function signUp()
     }
 }
 
-var testAlert;
-
 //Parse user functionality
 function uploadPic()
 {
@@ -117,9 +115,7 @@ function uploadPic()
     if (fileUpload.files.length > 0) 
     {
       var file = fileUpload.files[0];
-      var name = "photo.jpg";
-      //var file = holdPic;
-     
+      var name = "photo.jpg";  
       var parseFile = new Parse.File(name, file);
     }
 

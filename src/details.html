@@ -106,18 +106,14 @@
 
 						<div class="stockimage" align='center'>
 							<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
-					<!-- 
-							<br>
-
-							<img src="images/test.jpg" alt="avatarimg" class="img-rounded" id="testPhoto" align='center'> -->
 
 						</div>
 					</form>
 
-				     <p>Upload profile picture</p>
+<!-- 				     <p>Upload profile picture</p>
 					<form> 
 						<input type="file" id="profilePhoto">
-					</form> 
+					</form>  -->
 
 
 					<script> 
@@ -144,27 +140,69 @@
 								picProp, //1st param
 								function (file) //2nd param
 								{
-									var parseFile = new Parse.File('photo.jpg', file);
-
-									parseFile.save().then(function(){
-											alert('success')
-										},
-											function(){ alert('error')}
-										)
-									
-									alert(parseFile.url())
-									
 									forge.file.URL(file, function (url) {
 										$('#profilePhoto').attr('src', url);
-									})
+										alert('running code in forge URL');
+
+										forge.file.base64(
+												file,
+												function(base64String){},
+												function(error){}
+										);
+
+										var parseFile = new Parse.File('photo.jpg', file);
+
+										parseFile.save().then(
+											function()
+											{
+												alert('success')
+											},
+											function(error)
+											{ 
+												alert('error')
+											}
+										);
+
+									});
 								},
-								function(error) //3rd param
+								function (error) //3rd param
 								{
-									alert('getting the error: ' + error);
+
 								}
 							);
 						}	
 					)
+
+
+					// $("#select").click(
+					// 	function()
+					// 	{
+					// 		forge.file.getImage
+					// 		(
+					// 			picProp, //1st param
+					// 			function (file) //2nd param
+					// 			{
+					// 				var parseFile = new Parse.File('photo.jpg', file);
+
+					// 				parseFile.save().then(function(){
+					// 						alert('success')
+					// 					},
+					// 						function(){ alert('error')}
+					// 					)
+									
+					// 				alert(parseFile.url())
+									
+					// 				forge.file.URL(file, function (url) {
+					// 					$('#profilePhoto').attr('src', url);
+					// 				})
+					// 			},
+					// 			function(error) //3rd param
+					// 			{
+					// 				alert('getting the error: ' + error);
+					// 			}
+					// 		);
+					// 	}	
+					// )
 
 					// var uploadPhotoFile = function(file) {
 					// 	forge.request.ajax({
