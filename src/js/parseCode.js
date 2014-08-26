@@ -219,7 +219,7 @@ function logIn()
 
 
 //Adding jobs to table
-function addRow(content0,content1,content2)
+/* function addRow(content0,content1,content2)
 {
 	  if (!document.getElementsByTagName) return;
 	  tabBody=document.getElementsByTagName("tbody").item(0);
@@ -242,5 +242,5 @@ function addRow(content0,content1,content2)
 	  row.appendChild(cell3);
 
 	  tabBody.appendChild(row);
-}
+} */
 // http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 
