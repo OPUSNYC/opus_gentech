@@ -92,6 +92,7 @@ function signUp()
           success: function(user) 
           {
             alert('Signup successful!');
+			window.location.assign('studentprofile.html');
           },
           error: function(user, error) 
           {
@@ -105,19 +106,18 @@ function signUp()
     }
 }
 
-//Parse user functionality
-function users()
+// for edit profile 
+function update()
 {
-    //parse user object
     var user = new Parse.User();
 
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
-	var birthMonth = document.getElementById('birthMonth').value - 1;
+    var birthMonth = document.getElementById('birthMonth').value - 1;
     var birthDay = document.getElementById('birthDay').value; 
     var birthYear = document.getElementById('birthYear').value;  
-       var birth = new Date(birthYear, birthMonth, birthDay) 
+    var birth = new Date(birthYear, birthMonth, birthDay) 
 
     var school = document.getElementById('school').value;
 
@@ -126,8 +126,9 @@ function users()
 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var reEnter = document.getElementById('reEnter').value;
 
-	user.set("firstName", firstName);
+    user.set("firstName", firstName);
     user.set("lastName", lastName);
     user.set("birth", birth);
     user.set("school", school);
@@ -135,21 +136,9 @@ function users()
     user.set("username", email);
     user.set("email", email);
     user.set("password", password);
-
-    user.signUp(null, {
-      success: function(user) 
-      {
-        alert('Signup successful!');
-      },
-        error: function(user, error) 
-      {
-        alert("Error: " + error.code + " " + error.message);
-      } 
-    });
 }
 
-
-var query = new Parse.Query(users);
+/*var query = new Parse.Query(users);
 query.equalTo();
 query.find({
 	success: function(results) {
@@ -158,7 +147,8 @@ query.find({
 			alert("Success");
 			} 
 			}});
-
+*/
+			
 function uploadPic()
 {
     var user = new Parse.User();
@@ -191,6 +181,8 @@ function uploadPic()
     });
 }
 
+
+//for index.html (Logging in)
 function logIn()
 {
     var user = new Parse.User();
