@@ -1,17 +1,12 @@
 Parse.initialize("TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A", "NOwE5UK4nwCEM1Irrl6h1iCSEh4tdR5FJe19ML1m");
 
-	//HTML job form text input
-	
-	/* var jobType = document.getElementById('jobType').value;
-	var jobName = document.getElementById('jobName').value;
-	var jobCompany = document.getElementById('jobCompany').value; */
+//Parse Job Object
+var Jobs = Parse.Object.extend("jobs");
+var jobs = new Jobs();	
 
-    //Parse Job Object
-    var Jobs = Parse.Object.extend("jobs");
-    var jobs = new Jobs();	
+//Parse user object
+var user = new Parse.User();
 
-	
-	
 function jobFields() 
 {
 	//parse columns set to text input
@@ -57,9 +52,7 @@ function jobFields()
 }
 
 function signUp()
-{
-    var user = new Parse.User();
-
+{ 
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
@@ -119,11 +112,74 @@ function signUp()
     }
 }
 
-// for edit profile 
+//For user to log in in index.html
+function logIn()
+{
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    Parse.User.logIn(email, password, {
+      success: function(user) {
+        window.location.assign('studentprofile.html');
+        gloEmail = 'Global Test';
+         // Do stuff after successful login.
+        },
+      error: function(user, error) {
+        alert("Login Failed \n Incorrect email or password");
+        document.getElementById('login').href='#';
+        // The login failed. Check error to see why.
+        }
+    });
+
+    //Sets as current user
+    var currentUser = Parse.User.current();
+    if (currentUser) 
+    {
+    // do stuff with the user
+    } 
+    else 
+    {
+    // show the signup or login page
+    }
+}
+
+//Loading information to studentprofile.html
+function loadUser()
+{
+    var user = Parse.User.current();
+
+    user.fetch().then(
+        function(user)
+        {
+            var firstName = user.get('firstName');
+            var space = ' ';
+            var lastName = user.get('lastName');
+            var fullName = firstName.concat(space, lastName);
+
+            var email = user.getEmail()
+            var phone = user.get('phone');;
+
+            var imageFile = user.get('profilePic');
+            var imageURL = imageFile.url();
+
+            document.getElementById('name').innerHTML = fullName;
+            document.getElementById('email').innerHTML = email;
+            document.getElementById('phone').innerHTML = phone;
+            document.getElementById('profilePic').src = imageURL;
+        }, 
+        function(error){
+             //Handle the error
+             console.log('Fetch Error: ' + error);
+        });
+
+    // var phone = user.get('phone');
+
+    // alert(fullName + email + phone);
+}
+
+//For editing profile 
 function update()
 {
-    var user = new Parse.User();
-
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
@@ -151,22 +207,39 @@ function update()
     user.set("password", password);
 }
 
-/*var query = new Parse.Query(users);
-query.equalTo();
-query.find({
-	success: function(results) {
-		for (var i = 0; i < results.length; i++) { 
-			var object = results[i];
-			alert("Success");
-			} 
-			}});
-*/
-		
-        //RESERVED FOR BROWSER FUNCTIONALITY	
+//Adding jobs to table
+function addRow(content0,content1,content2)
+{
+	  if (!document.getElementsByTagName) return;
+	  tabBody=document.getElementsByTagName("tbody").item(0);
+	  row=document.createElement("tr");
+
+	  cell1 = document.createElement("td");
+	  cell2 = document.createElement("td");
+	  cell3 = document.createElement("td");
+
+	  textnode1=document.createTextNode(content0);
+	  textnode2=document.createTextNode(content1);
+	  textnode3=document.createTextNode(content2);
+
+	  cell1.appendChild(textnode1);
+	  cell2.appendChild(textnode2);
+	  cell3.appendChild(textnode3);
+
+	  row.appendChild(cell1);
+	  row.appendChild(cell2);
+	  row.appendChild(cell3);
+
+	  tabBody.appendChild(row);
+}
+
+// http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 
+
+        //RESERVED FOR BROWSER FUNCTIONALITY    
 // function uploadPic()
 // {
 //     var user = new Parse.User();
-// 	//Uploading photo to parse
+//  //Uploading photo to parse
 //     var fileUpload = $("#profilePhoto")[0];
 //     if (fileUpload.files.length > 0) 
 //     {
@@ -194,53 +267,8 @@ query.find({
 //     });
 // }
 
+//HTML job form text input
 
-//for index.html (Logging in)
-function logIn()
-{
-    var user = new Parse.User();
-
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-
-    Parse.User.logIn(email, password, {
-      success: function(user) {
-        window.location.assign('studentprofile.html');
-         // Do stuff after successful login.
-        },
-      error: function(user, error) {
-        alert("Login Failed \n Incorrect email or password");
-        document.getElementById('login').href='#';
-        // The login failed. Check error to see why.
-        }
-    });
-}
-
-
-
-//Adding jobs to table
-/* function addRow(content0,content1,content2)
-{
-	  if (!document.getElementsByTagName) return;
-	  tabBody=document.getElementsByTagName("tbody").item(0);
-	  row=document.createElement("tr");
-
-	  cell1 = document.createElement("td");
-	  cell2 = document.createElement("td");
-	  cell3 = document.createElement("td");
-
-	  textnode1=document.createTextNode(content0);
-	  textnode2=document.createTextNode(content1);
-	  textnode3=document.createTextNode(content2);
-
-	  cell1.appendChild(textnode1);
-	  cell2.appendChild(textnode2);
-	  cell3.appendChild(textnode3);
-
-	  row.appendChild(cell1);
-	  row.appendChild(cell2);
-	  row.appendChild(cell3);
-
-	  tabBody.appendChild(row);
-} */
-// http://stackoverflow.com/questions/6280495/populate-html-table-using-javascript 
+/* var jobType = document.getElementById('jobType').value;
+var jobName = document.getElementById('jobName').value;
+var jobCompany = document.getElementById('jobCompany').value; */
