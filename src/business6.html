@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script> 
+	forge.topbar.removeButtons() 
+	forge.topbar.addButton({
+		text: "Apply",
+		position: "right"
+	}, 
+	function () {
+
+	window.location= "apply_success.html";  
+	forge.topbar.removeButtons();
+	forge.tabbar.removeButtons();
+});
+	forge.topbar.addButton({
+		text: "Back",
+		position: "left"
+	}, function () {
+		window.location= "jobs.html";
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	});
+
+forge.tabbar.show();
+forge.tabbar.removeButtons();
+</script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
+		<script type='text/javascript' src='js/parse.js'></script>
+		<script src="js/parseCode.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 20px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+
+			.jumbotron {
+				margin: 60px 0;
+				text-align: center;
+			}
+			.jumbotron h1 {
+				font-size: 50px;
+				line-height: 1;
+			}
+
+			p {
+				font-size: 1.2em;
+			}
+			.stockimage{
+				width:100px;
+				height:100px;
+			}
+			.aboutmetext{
+				text-: center;
+			}
+			.btn{
+				text-align: center;
+				vertical-align: middle;
+			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+				color: white
+			}
+			h1 , h3, h4{
+				color:#006ccc;
+			}
+			.date
+			{
+				font-family: "Roboto";
+				color: gray;
+			}
+			</style>
+		</head>
+
+		<body>
+			<div class="container-narrow">
+				<div class="jumbotron">
+					<h1>Profile</h1>
+				</div>
+
+			<div style="background-color: gray; border-radius:1em">
+				<table>
+					<td style="padding: 5px;">
+						<div class="stockimage">
+							<img src="images/horizonlogo.png" alt="avatarimg" class="img-rounded">
+						</div>
+					</td>
+
+					<td>
+						<div>
+							<strong> Company </strong> <br> Horizon Technical Consultants<br>
+							<strong> Email </strong> <br> Horizontechnical@email.com <br>
+							<strong> Phone Number </strong> <br> 123-456-7890 <br>
+							<strong> Rating </strong> <br>
+							<img src="images/rating3_5.png" alt="rating">
+						</div>
+					</td>
+				</table>
+			</div>
+			
+			<hr>
+
+			<div>
+				<h3>ABOUT</h3>
+					<p>
+						Horizon Technical Consultants is New York's best source for the finest of information, medical, home and business technology training solutions. All of our students are given the opportunity to learn and maximize their potential. As a training center, we have been providing quality training services to New York businesses and residents. We are proud of our heritage of working with each student on an individualized basis and can undoubtedly say that our students get more than a class; they get our strong determination and support to broaden their perspectives and enhance their skills to sustain in this ever-evolving, globally-competitive market.  
+					</p>
+			</div>
+			
+			<hr>
+
+			<div>
+				<h4>Repair Assistant</h4>
+					<p>
+						We would like a student experienced at working with computers. They must demonstrate the knowledge in a short interview via phone or in person
+					</p>
+			</div>
+
+		</body>
+		</html>

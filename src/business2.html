@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script> 
+	forge.topbar.removeButtons() 
+	forge.topbar.addButton({
+		text: "Apply",
+		position: "right"
+	}, 
+	function () {
+
+	window.location= "apply_success.html";  
+	forge.topbar.removeButtons();
+	forge.tabbar.removeButtons();
+});
+	forge.topbar.addButton({
+		text: "Back",
+		position: "left"
+	}, function () {
+		window.location= "jobs.html";
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	});
+
+forge.tabbar.show();
+forge.tabbar.removeButtons();
+</script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
+		<script type='text/javascript' src='js/parse.js'></script>
+		<script src="js/parseCode.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 20px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+
+			.jumbotron {
+				margin: 60px 0;
+				text-align: center;
+			}
+			.jumbotron h1 {
+				font-size: 50px;
+				line-height: 1;
+			}
+
+			p {
+				font-size: 1.2em;
+			}
+			.stockimage{
+				width:100px;
+				height:100px;
+			}
+			.aboutmetext{
+				text-: center;
+			}
+			.btn{
+				text-align: center;
+				vertical-align: middle;
+			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+				color: white
+			}
+			h1 , h3, h4{
+				color:#006ccc;
+			}
+			.date
+			{
+				font-family: "Roboto";
+				color: gray;
+			}
+			</style>
+		</head>
+
+		<body>
+			<div class="container-narrow">
+				<div class="jumbotron">
+					<h1>Profile</h1>
+				</div>
+
+			<div style="background-color: gray; border-radius:1em">
+				<table>
+					<td style="padding: 5px;">
+						<div class="stockimage">
+							<img src="images/maxwoclogo.png" alt="avatarimg" class="img-rounded">
+						</div>
+					</td>
+
+					<td>
+						<div>
+							<strong> Company </strong> <br> Max World of Cars LLC<br>
+							<strong> Email </strong> <br> wocars@email.com <br>
+							<strong> Phone Number </strong> <br> 123-456-7890 <br>
+							<strong> Rating </strong> <br>
+							<img src="images/rating4.png" alt="rating">
+						</div>
+					</td>
+				</table>
+			</div>
+			
+			<hr>
+
+			<div>
+				<h3>ABOUT</h3>
+					<p>	
+We offer the best prices pre-owned vehicles in the area! Our knowledgeable sales representatives are committed to providing the customer with a "no-pressure" buying experience. We want to make sure they find the vehicle that meets their needs and fits their individual budget. Let Max World of Cars be your best buying experience!
+					</p>
+			</div>
+			
+			<hr>
+
+			<div>
+					<h4>Analysis</h4>
+						<p>
+						Would like a high school student proficient at using excel or other spreadsheet software in order to analyze the data from our sales.
+						</p>
+			</div>
+
+		</body>
+		</html>

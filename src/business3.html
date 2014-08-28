@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script> 
+	forge.topbar.removeButtons() 
+	forge.topbar.addButton({
+		text: "Apply",
+		position: "right"
+	}, 
+	function () {
+
+	window.location= "apply_success.html";  
+	forge.topbar.removeButtons();
+	forge.tabbar.removeButtons();
+});
+	forge.topbar.addButton({
+		text: "Back",
+		position: "left"
+	}, function () {
+		window.location= "jobs.html";
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+	});
+
+forge.tabbar.show();
+forge.tabbar.removeButtons();
+</script>
+		<script type='text/javascript' src="js/jquery-2.0.2.js"></script>
+		<script type='text/javascript' src="js/bootstrap.js"></script>
+		<script type='text/javascript' src='js/parse.js'></script>
+		<script src="js/parseCode.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 20px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+
+			.jumbotron {
+				margin: 60px 0;
+				text-align: center;
+			}
+			.jumbotron h1 {
+				font-size: 50px;
+				line-height: 1;
+			}
+
+			p {
+				font-size: 1.2em;
+			}
+			.stockimage{
+				width:100px;
+				height:100px;
+			}
+			.aboutmetext{
+				text-: center;
+			}
+			.btn{
+				text-align: center;
+				vertical-align: middle;
+			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+				color: white
+			}
+			h1 , h3, h4{
+				color:#006ccc;
+			}
+			.date
+			{
+				font-family: "Roboto";
+				color: gray;
+			}
+			</style>
+		</head>
+
+		<body>
+			<div class="container-narrow">
+				<div class="jumbotron">
+					<h1>Profile</h1>
+				</div>
+
+			<div style="background-color: gray; border-radius:1em">
+				<table>
+					<td style="padding: 5px;">
+						<div class="stockimage">
+							<img src="images/googlelogo.png" alt="avatarimg" class="img-rounded">
+						</div>
+					</td>
+
+					<td>
+						<div>
+							<strong> Company </strong> <br> Google<br>
+							<strong> Email </strong> <br> google@email.com <br>
+							<strong> Phone Number </strong> <br> 123-456-7890 <br>
+							<strong> Rating </strong> <br>
+							<img src="images/rating5.png" alt="rating">
+						</div>
+					</td>
+				</table>
+			</div>
+			
+			<hr>
+
+			<div>
+				<h3>ABOUT</h3>
+					<p>
+						Google’s mission is to organize the world’s information and make it universally accessible and useful.
+Our company has packed a lot into a relatively young life. Since Google was founded in 1998, we’ve grown to serve millions of people around the world.
+					</p>
+			</div>
+			
+			<hr>
+
+			<div>
+				<h4>Crunching</h4>
+					<p>
+					We would like a motivated young high school student who is proficient at using Microsoft Excel to work with data from our search engine.
+					</p>
+			</div>
+
+		</body>
+		</html>
