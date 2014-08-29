@@ -161,11 +161,14 @@ function loadUser()
 
             var imageFile = user.get('profilePic');
             var imageURL = imageFile.url();
+			
+			var aboutMe = user.get('about');
 
             document.getElementById('name').innerHTML = fullName;
             document.getElementById('email').innerHTML = email;
             document.getElementById('phone').innerHTML = phone;
             document.getElementById('profilePic').src = imageURL;
+			document.getElementById('about').innerHTML = aboutMe;
         }, 
         function(error){
              //Handle the error
