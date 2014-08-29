@@ -275,3 +275,9 @@ function addRow(content0,content1,content2)
 /* var jobType = document.getElementById('jobType').value;
 var jobName = document.getElementById('jobName').value;
 var jobCompany = document.getElementById('jobCompany').value; */
+
+
+// Push notifications from parse
+forge.event.messagePushed.addListener(function (msg) {
+    alert(msg.alert);
+});
