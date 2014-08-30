@@ -62,7 +62,7 @@ function signUp()
     var birth = new Date(birthYear, birthMonth, birthDay) 
 
     var school = document.getElementById('school').value;
-
+	
     var phone = document.getElementById('phone').value;
         phone = parseInt(phone);
 
