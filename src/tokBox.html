@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">	
+	<head>
+		<meta charset="utf-8">
+
+		<script src="js/jquery-2.0.2.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/parse.js"></script>
+		<script src="js/parseCode.js"></script>
+		<script src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/tokBox.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		  var apiKey    = "f1975f51e8446a288eefe18d45f0282b82e1eecf";
+		  var sessionId = "2_MX40NDk2MTU5Mn5-VGh1IEF1ZyAyOCAxNjo0MjoyOCBQRFQgMjAxNH4wLjUwMDY3NjE2fn4";
+		  var token     = "T1==cGFydG5lcl9pZD00NDk2MTU5MiZzaWc9ZDU5MDQ5YTcxODg2NWY1NzBlNTkyOGRiMjIwM2MyYWQ0YjYwYWNjYzpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5EazJNVFU1TW41LVZHaDFJRUYxWnlBeU9DQXhOam8wTWpveU9DQlFSRlFnTWpBeE5INHdMalV3TURZM05qRTJmbjQmY3JlYXRlX3RpbWU9MTQwOTI2OTM1NCZub25jZT0wLjQzODU1ODE3Nzg0ODU5NjUmZXhwaXJlX3RpbWU9MTQwOTI3Mjk0Mg==";
+		 
+		  var session = OT.initSession(apiKey, sessionId);
+		 
+		  session.on("streamCreated", function(event) {
+		    session.subscribe(event.stream);
+		  });
+		 
+		  session.connect(token, function(error) {
+		    var publisher = OT.initPublisher();
+		    session.publish(publisher);
+		  });
+		</script>
+		
+	</body>
+</html>
