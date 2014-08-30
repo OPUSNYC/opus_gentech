@@ -172,3 +172,28 @@ function (err) {
 }
 
 subscribed();
+
+//job description subscription
+function subscribe() 
+	{
+	var subscribeInfo = document.getElementById('subscribeto').value;
+    forge.parse.push.subscribe(subscribeInfo,
+	function () {
+		alert("Subscribed to push notifications!");
+	},
+	function (err) {
+		alert("Error subscribing to notifications: "+ JSON.stringify(err));
+	});
+	}
+
+function unsubscribe() 
+	{	
+	var subscribeInfo = document.getElementById('subscribeto').value;
+	forge.parse.push.unsubscribe(subscribeInfo,
+	function () {
+		alert("Unsubscribed!");
+	},
+	function (err) {
+		alert("Couldn't unsubscribe from notifications: "+ JSON.stringify(err));
+	});
+	}

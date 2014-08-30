@@ -74,7 +74,7 @@
 		window.location.assign("studentprofile.html");
 		forge.topbar.removeButtons();
 		forge.tabbar.removeButtons();
-		update();
+		//update();
 }	);
 
 forge.tabbar.hide()
@@ -87,7 +87,7 @@ forge.tabbar.hide()
 			</div>
 			
 			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="proImg">
+				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id='profilePic'>
 			</div>
 			
 			<div align="center">
@@ -97,29 +97,56 @@ forge.tabbar.hide()
 			</div>
 
 			<script> 
-			$("a.select").click(function(){
-				forge.file.getImage(
-					function (file) {
-						forge.file.URL(file, function (url) {$('#proImg').attr('src', url);} );
-					uploadPhotoFile(file);
-					});
-				});
-				/* console.log("running");
-				forge.file.getImage( 
+				//Displays photo on phone for review
+					function displayPic(file)
+					{
+						forge.file.URL(file, function (url) {
+							$('#profilePhoto').attr('src', url);
+							convert64(file);
+						});
+					}
 
-				function(file)  
-				{
-				 	console.log(file);
-				 		console.log("success...");
-				 	},
+				//Convert file to base64 for upload to parse
+					var globalString;
+					function convert64(file)
+					{
+						forge.file.base64(
+							file, //1st param
+							function (base64String)//2nd param
+							{
+								//alert('64String success');
+								globalString = base64String;
+							},
+							function (error)//3rd param
+							{
+								alert('No 64 String');
+							}
+						);
+					}
 
-				 	function(content)
-				 	{
-				 		console.log(content);
-				 		console.log("error...")
-				 	}
-				*/ 
-			</script>
+					var picProp = {
+						width: 500,
+						height: 500
+					};
+
+					$("#select").click(
+						function()
+						{
+							forge.file.getImage
+							(
+								picProp, //1st param
+								function (file) //2nd param
+								{	
+									displayPic(file);
+								},
+								function (error) //3rd param
+								{
+									alert('Click Error: ' + error);
+								}
+							);
+						}	
+					)
+					</script>
 
 			<br>
 			<br>
@@ -159,6 +186,15 @@ forge.tabbar.hide()
 				
 				<hr>
 				
+				<p> Get notifications by type of job! </p>
+				<form>
+					<input type="text" placeholder="Description" id='subscribeto'>
+				</form>
+				<a class="btn btn-primary btn-large" onclick='subscribe()'>Notify me!</a>
+				<a class="btn btn-primary btn-large" onclick='unsubscribe()' >Stop notifying me!</a>
+				
+				<hr> 
+				
 				<h5> Monday </h5>
 				<a class="btn btn-primary btn-large" onclick='mondaySubscribe()'>Notify me!</a>
 				<a class="btn btn-primary btn-large" onclick='mondayStop()' >Stop notifying me!</a>
@@ -188,5 +224,12 @@ forge.tabbar.hide()
 				<a class="btn btn-primary btn-large" onclick='sundayStop()'>Stop notifying me!</a>
 				
 				</div> 
+				
+				<!-- <script>
+				window.onload = function()
+				{
+					update();
+				}
+				</script> -->
 			</body>
 		</html>
