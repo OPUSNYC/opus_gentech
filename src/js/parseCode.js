@@ -62,7 +62,7 @@ function signUp()
     var birth = new Date(birthYear, birthMonth, birthDay) 
 
     var school = document.getElementById('school').value;
-
+	
     var phone = document.getElementById('phone').value;
         phone = parseInt(phone);
 
@@ -161,11 +161,14 @@ function loadUser()
 
             var imageFile = user.get('profilePic');
             var imageURL = imageFile.url();
+			
+			var aboutMe = user.get('about');
 
             document.getElementById('name').innerHTML = fullName;
             document.getElementById('email').innerHTML = email;
             document.getElementById('phone').innerHTML = phone;
             document.getElementById('profilePic').src = imageURL;
+			document.getElementById('about').innerHTML = aboutMe;
         }, 
         function(error){
              //Handle the error
@@ -178,21 +181,14 @@ function loadUser()
 }
 
 //For editing profile 
-function update()
+/* function update()
 {
     //HTML user account info input
     var firstName = document.getElementById('firstName').value;
     var lastName = document.getElementById('lastName').value;
-    var birthMonth = document.getElementById('birthMonth').value - 1;
-    var birthDay = document.getElementById('birthDay').value; 
-    var birthYear = document.getElementById('birthYear').value;  
-    var birth = new Date(birthYear, birthMonth, birthDay) 
-
-    var school = document.getElementById('school').value;
-
     var phone = document.getElementById('phone').value;
         phone = parseInt(phone);
-
+		
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var reEnter = document.getElementById('reEnter').value;
@@ -205,7 +201,36 @@ function update()
     user.set("username", email);
     user.set("email", email);
     user.set("password", password);
-}
+	
+	
+	var user = Parse.User.current();
+    user.fetch().then(
+        function(user)
+        {
+            var firstName = user.get('firstName');
+            var space = ' ';
+            var lastName = user.get('lastName');
+            var fullName = firstName.concat(space, lastName);
+
+            var email = user.getEmail()
+            var phone = user.get('phone');;
+
+            var imageFile = user.get('profilePic');
+            var imageURL = imageFile.url();
+			
+			var aboutMe = user.get('about');
+
+            document.getElementById('name').innerHTML = fullName;
+            document.getElementById('email').innerHTML = email;
+            document.getElementById('phone').innerHTML = phone;
+            document.getElementById('profilePic').src = imageURL;
+			document.getElementById('about').innerHTML = aboutMe;
+        }, 
+        function(error){
+             //Handle the error
+             console.log('Fetch Error: ' + error);
+        });
+} */
 
 //Adding jobs to table
 function addRow(content0,content1,content2)
@@ -272,3 +297,9 @@ function addRow(content0,content1,content2)
 /* var jobType = document.getElementById('jobType').value;
 var jobName = document.getElementById('jobName').value;
 var jobCompany = document.getElementById('jobCompany').value; */
+
+
+// Push notifications from parse
+forge.event.messagePushed.addListener(function (msg) {
+    alert(msg.alert);
+});
