@@ -58,6 +58,9 @@
 				"clientKey": "iwobPKxUwKJzbK3XAiQsBcfRQNWJ678smvKqueip",
 				"applicationId": "TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A"
 			}
+		},
+		"opus_tokbox": {
+			"version": "0.4"
 		}
 	}
 }

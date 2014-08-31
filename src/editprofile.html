@@ -71,6 +71,7 @@
 		text: "Save",
 		position: "right"
 	}, function () {
+		picUpload();
 		window.location.assign("studentprofile.html");
 		forge.topbar.removeButtons();
 		forge.tabbar.removeButtons();
@@ -87,67 +88,12 @@ forge.tabbar.hide()
 			</div>
 			
 			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id='profilePic'>
+				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id='profilePhoto'>
 			</div>
 			
 			<div align="center">
-				<a class="select" href="#" style="color:white">
-					Select Image
-				</a>
+				<a id="select" href="#" style="color:white">Select Image</a>
 			</div>
-
-			<script> 
-				//Displays photo on phone for review
-					function displayPic(file)
-					{
-						forge.file.URL(file, function (url) {
-							$('#profilePhoto').attr('src', url);
-							convert64(file);
-						});
-					}
-
-				//Convert file to base64 for upload to parse
-					var globalString;
-					function convert64(file)
-					{
-						forge.file.base64(
-							file, //1st param
-							function (base64String)//2nd param
-							{
-								//alert('64String success');
-								globalString = base64String;
-							},
-							function (error)//3rd param
-							{
-								alert('No 64 String');
-							}
-						);
-					}
-
-					var picProp = {
-						width: 500,
-						height: 500
-					};
-
-					$("#select").click(
-						function()
-						{
-							forge.file.getImage
-							(
-								picProp, //1st param
-								function (file) //2nd param
-								{	
-									displayPic(file);
-								},
-								function (error) //3rd param
-								{
-									alert('Click Error: ' + error);
-								}
-							);
-						}	
-					)
-					</script>
-
 			<br>
 			<br>
 			<br>
@@ -157,15 +103,15 @@ forge.tabbar.hide()
 					<table>
 						<tr>
 							<td align="left">Name</td>
-							<td> <input type="text" id="firstName" style="width:100px;"> <input type="text" id="lastName" style="width:100px;"> </td>	
+							<td> <input type="text" id="firstName" style="width:100px;"> <input type="text" id="lastName" style="width:100px;"></td>	
 						</tr>
 						<tr>
 							<td align="left">Phone</td>
-							<td align="right"><input type="number" id="phone" /></td>
+							<td align="right"><input type="number" id="phone"/></td>
 						</td>
 						<tr>
 							<td align="left">Email</td>
-							<td align="right"><input type="text" id="email" /></td>
+							<td align="right"><input type="text" id="email"/></td>
 						</td>
 					</table>
 					</form>
@@ -174,7 +120,7 @@ forge.tabbar.hide()
 				<div class="aboutmetext">
 					<h2>About Me</h2>
 					<form>
-						<input type="text" name="textfield" width="500" height="500" />
+						<input type="text" name="textfield" width="500" height="500" id='about'/>
 					</form>
 				</div>	
 				
@@ -224,12 +170,63 @@ forge.tabbar.hide()
 				<a class="btn btn-primary btn-large" onclick='sundayStop();window.location.reload()'>Stop notifying me!</a>
 				
 				</div> 
-				
-				<!-- <script>
-				window.onload = function()
-				{
-					update();
-				}
-				</script> -->
+
+				<script> 
+				$("#select").click(
+						function()
+						{
+							forge.file.getImage
+							(
+								picProp, //1st param
+								function (file) //2nd param
+								{	
+									displayPic(file);
+								},
+								function (error) //3rd param
+								{
+									alert('Click Error: ' + error);
+								}
+							);
+						}	
+					)
+
+				//Displays photo on phone for review
+					function displayPic(file)
+					{
+						forge.file.URL(file, function (url) {
+							$('#profilePhoto').attr('src', url);
+							convert64(file);
+						});
+					}
+
+				//Convert file to base64 for upload to parse
+					var globalString;
+					function convert64(file)
+					{
+						forge.file.base64(
+							file, //1st param
+							function (base64String)//2nd param
+							{
+								//alert('64String success');
+								globalString = base64String;
+							},
+							function (error)//3rd param
+							{
+								alert('No 64 String');
+							}
+						);
+					}
+
+					var picProp = {
+						width: 500,
+						height: 500
+					};
+
+					window.onload = function()
+					{
+						loadEdit();
+					}
+					</script>
+
 			</body>
 		</html>
