@@ -15,12 +15,14 @@
 	},
 	"modules": {
 		"icons": {
-			"version": "2.1",
+			"version": "2.3",
 			"config": {
 				"android": {
 					"36": "images/logo strong.png",
 					"48": "images/logo strong.png",
-					"72": "images/logo strong.png"
+					"72": "images/logo strong.png",
+					"96": "images/logo strong.png",
+					"144": "images/logo strong.png"
 				}
 			}
 		},
@@ -51,6 +53,16 @@
 		},
 		"tabbar": {
 			"version": "2.4"
+		},
+		"parse": {
+			"version": "2.2",
+			"config": {
+				"clientKey": "iwobPKxUwKJzbK3XAiQsBcfRQNWJ678smvKqueip",
+				"applicationId": "TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A"
+			}
+		},
+		"quickblox": {
+			"version": "0.3"
 		}
 	}
 }

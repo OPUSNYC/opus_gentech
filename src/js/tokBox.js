@@ -34,7 +34,7 @@
  limitations under the License.
 
  Original source: https://github.com/inexorabletash/text-encoding
-*/
+
 (function(c){c.OT||(c.OT={});OT.properties={version:"v2.2.8",build:"b386cc9",debug:"false",websiteURL:"http://www.tokbox.com",cdnURL:"http://static.opentok.com",loggingURL:"https://hlg.tokbox.com/prod",apiURL:"http://anvil.opentok.com",messagingProtocol:"wss",messagingPort:443,supportSSL:"true",cdnURLSSL:"https://static.opentok.com",apiURLSSL:"https://anvil.opentok.com",
 minimumVersion:{firefox:parseFloat("26"),chrome:parseFloat("32")}}})(window);
 !function(c,a){var f=function(a){return document.getElementById(a)},k=c.OTHelpers;c.OTHelpers=f;c.___othelpers=!0;f.keys=Object.keys||function(a){var b=[],d=Object.prototype.hasOwnProperty,e;for(e in a)d.call(a,e)&&b.push(e);return b};var b=Array.prototype.forEach||function(a,b){for(var d=0,e=this.length||0;d<e;++d)d in this&&a.call(b,this[d],d)};f.forEach=function(a,d,e){return b.call(a,d,e)};var e=Array.prototype.map||function(a,d){var e=[];b.call(this,function(b,g){e.push(a.call(d,b,g))});return e};
@@ -450,3 +450,5 @@ style:"border: 1px solid #000; padding: 10px; width: 320px;"},[a({style:"padding
 previewTag:q,mode:"audioSource"});e.setLoading();m.setLoading();OT.getDevices(function(a,c){a?b(a):this.is("destroyed")||(g(),e.setDeviceList(c.filter(function(a){return"videoinput"===a.kind})),m.setDeviceList(c.filter(function(a){return"audioinput"===a.kind})),l("chooseDevices"))}.bind(this));g=function(){var a=k.insertMode;if(null==a||"replace"===a){OT.$.emptyElement(f);null==f.getAttribute("id")&&f.setAttribute("id",n.getAttribute("id"));for(var b in n.style)f.style[b]=n.style[b];for(;0<n.childNodes.length;)f.appendChild(n.firstChild)}else"append"===
 a?(f.appendChild(n),f=n):"before"===a?(f.parentNode.insertBefore(n,f),f=n):"after"===a&&(f.parentNode.insertBefore(n,f.nextSibling),f=n)}}else b(Error("This browser does not support getMediaDevices APIs"))};OT.initHardwareSetup=function(a,c,b){return new OT.HardwareSetup(a,c,b)}})();!function(){var c=document.createElement("link");c.type="text/css";c.media="screen";c.rel="stylesheet";c.href=OT.properties.cssURL;(document.head||document.getElementsByTagName("head")[0]).appendChild(c)}(window);
 !function(){"function"===typeof define&&define.amd&&define("TB",[],function(){return TB})}(window);
+
+*/
