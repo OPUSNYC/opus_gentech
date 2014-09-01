@@ -168,17 +168,44 @@ function loadUser()
             document.getElementById('name').innerHTML = fullName;
             document.getElementById('email').innerHTML = email;
             document.getElementById('phone').innerHTML = phone;
-            document.getElementById('profilePic').src = imageURL;
+            document.getElementById('profilePhoto').src = imageURL;
 			document.getElementById('about').innerHTML = aboutMe;
         }, 
         function(error){
              //Handle the error
              console.log('Fetch Error: ' + error);
         });
+}
 
-    // var phone = user.get('phone');
+function loadEdit()
+{
+    var user = Parse.User.current();
 
-    // alert(fullName + email + phone);
+    user.fetch().then(
+        function(user)
+        {
+            var firstName = user.get('firstName');
+            var lastName = user.get('lastName');
+
+            var email = user.getEmail()
+            var phone = user.get('phone');;
+
+            var imageFile = user.get('profilePic');
+            var imageURL = imageFile.url();
+            
+            var aboutMe = user.get('about');
+
+            document.getElementById('firstName').value = firstName;
+            document.getElementById('lastName').value = lastName;
+            document.getElementById('email').innerHTML = email;
+            document.getElementById('phone').value = phone;
+            document.getElementById('profilePhoto').src = imageURL;
+            document.getElementById('about').innerHTML = aboutMe;
+        }, 
+        function(error){
+             //Handle the error
+             console.log('Fetch Error: ' + error);
+        });
 }
 
 //For editing profile 
