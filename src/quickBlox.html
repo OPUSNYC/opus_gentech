@@ -17,8 +17,8 @@
 			forge.internal.call(
 			    'quickblox.videoChat',
 			    {},
-			    success,
-			    error
+			    function () { },
+			    function (e) { alert('Error: '+e.message)}
 		    )
 		}
 		</script>

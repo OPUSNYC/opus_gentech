@@ -22,5 +22,21 @@
 				"dest": "res/drawable-hdpi/icon.png"
 			}
 		}
+	},
+	{
+		"do": {
+			"copy_file_from_src": {
+				"filename": "{{modules.icons.config.android.96}}",
+				"dest": "res/drawable-xhdpi/icon.png"
+			}
+		}
+	},
+	{
+		"do": {
+			"copy_file_from_src": {
+				"filename": "{{modules.icons.config.android.144}}",
+				"dest": "res/drawable-xxhdpi/icon.png"
+			}
+		}
 	}
 ]
