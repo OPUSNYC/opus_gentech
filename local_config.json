@@ -1,9 +1,0 @@
-{
-	"general": {},
-	"android": {
-		"profiles": {
-			"DEFAULT": {}
-		},
-		"sdk": "C:/adt/sdk/"
-	}
-}
