@@ -78,6 +78,7 @@ function signUp()
     user.set("username", email);
     user.set("email", email);
     user.set("password", password);
+	user.set("type", "student");
 
     // START Profile Picture upload
     var fileData = {base64: globalString};
