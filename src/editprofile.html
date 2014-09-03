@@ -71,11 +71,9 @@
 		text: "Save",
 		position: "right"
 	}, function () {
-		picUpload();
-		window.location.assign("studentprofile.html");
+		edit();
 		forge.topbar.removeButtons();
 		forge.tabbar.removeButtons();
-		//update();
 }	);
 
 forge.tabbar.hide()
@@ -87,13 +85,22 @@ forge.tabbar.hide()
 				<h1>Edit Profile</h1>
 			</div>
 			
-			<div class="stockimage">
-				<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id='profilePhoto'>
-			</div>
-			
-			<div align="center">
-				<a id="select" href="#" style="color:white">Select Image</a>
-			</div>
+			<p align='center'>Upload profile picture</p>
+			<form> 
+				<div align="center">
+					<a id="select" href="#" style="color:white">Select Image</a>
+				</div>
+
+				<div class="stockimage" align='center'>
+					<img src="images/avatar.png" alt="avatarimg" class="img-rounded" id="profilePhoto" align='center'>
+				</div>	
+			</form>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<br>
 			<br>
 			<br>
@@ -120,7 +127,7 @@ forge.tabbar.hide()
 				<div class="aboutmetext">
 					<h2>About Me</h2>
 					<form>
-						<input type="text" name="textfield" width="500" height="500" id='about'/>
+						<textarea rows="4" cols="50" placeholder="Describe yourself here..." id='about'></textarea>
 					</form>
 				</div>	
 				
@@ -172,9 +179,41 @@ forge.tabbar.hide()
 				</div> 
 
 				<script> 
-				$("#select").click(
+				//Displays photo on phone for review
+					function displayPic(file)
+					{
+						forge.file.URL(file, function (url) {
+							$('#profilePhoto').attr('src', url);
+							convert64(file);
+						});
+					}
+
+				//Convert file to base64 for upload to parse
+					var globalString2;
+					function convert64(file)
+					{
+						forge.file.base64(
+							file, //1st param
+							function (base64String)//2nd param
+							{
+								globalString2 = base64String;
+							},
+							function (error)//3rd param
+							{
+								alert('No 64 String');
+							}
+						);
+					}
+
+					var picProp = {
+						width: 500,
+						height: 500
+					};
+
+					$("#select").click(
 						function()
 						{
+							change = true;
 							forge.file.getImage
 							(
 								picProp, //1st param
@@ -190,42 +229,57 @@ forge.tabbar.hide()
 						}	
 					)
 
-				//Displays photo on phone for review
-					function displayPic(file)
+					function edit()
 					{
-						forge.file.URL(file, function (url) {
-							$('#profilePhoto').attr('src', url);
-							convert64(file);
-						});
+					    var user = Parse.User.current();
+
+					    var firstName = document.getElementById('firstName').value;
+					    var lastName = document.getElementById('lastName').value;
+
+					    var phone = document.getElementById('phone').value;
+					        phone = parseInt(phone);
+
+					    var email = document.getElementById('email').value;
+					    var aboutMe = document.getElementById('about').value;
+
+					    if(change){
+						    // START Profile Picture upload
+						    var fileData = {base64: globalString2};
+						    var parsePicture= new Parse.File('photo.jpg', fileData, 'image/jpg');
+
+						    parsePicture.save().then(function() {
+						        //alert('File saved to parsePicture!'); 
+						    }, function(error) {
+						        alert('Could not save parsePic: ' + error);
+						    });
+						}
+
+					 	user.save(null, {
+					    success: function(user) {
+					        user.set("firstName", firstName);
+					        user.set("lastName", lastName);
+					        user.set("phone", phone);
+					        user.set("username", email);
+					        user.set("email", email);
+					        user.set("about", aboutMe);
+
+					        if(change){
+					        	user.set("profilePic", parsePicture);
+					    	}
+
+					        user.save();
+					        window.location.assign('studentprofile.html');
+					        }
+					    });
 					}
 
-				//Convert file to base64 for upload to parse
-					var globalString;
-					function convert64(file)
-					{
-						forge.file.base64(
-							file, //1st param
-							function (base64String)//2nd param
-							{
-								//alert('64String success');
-								globalString = base64String;
-							},
-							function (error)//3rd param
-							{
-								alert('No 64 String');
-							}
-						);
-					}
-
-					var picProp = {
-						width: 500,
-						height: 500
-					};
-
+					var change;
 					window.onload = function()
 					{
+						change = false;
 						loadEdit();
 					}
+
 					</script>
 
 			</body>
