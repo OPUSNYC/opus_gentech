@@ -98,7 +98,7 @@ function signUp()
           success: function(user) 
           {
             alert('Signup successful!');
-			window.location.assign('studentprofile.html');
+			window.location.assign('aboutMe.html');
           },
           error: function(user, error) 
           {
@@ -110,6 +110,66 @@ function signUp()
     {
         alert('Passwords do not match. Please try again.');
     }
+}
+
+function submitAbout()
+{
+    var user = Parse.User.current();
+
+    var about = document.getElementById('about').value;
+    
+    user.save(null, {
+    success: function(user) {
+        user.set("about", about);
+        user.save();
+        window.location.assign('jobExperience.html');
+        }
+    });
+
+}
+
+function submitEx()
+{
+    var user = Parse.User.current();
+
+    var date = document.getElementById('jobDate').value;
+    var name = document.getElementById('jobName').value;
+    var descript = document.getElementById('jobDescript').value;
+
+    user.save(null, {
+    success: function(user) {
+        user.set("jobDate", date);
+        user.set("jobName", name);
+        user.set("jobDescript", descript);
+        user.save();
+
+        window.location.assign('studentprofile.html');
+        }
+    });
+}
+
+function submitExMore()
+{
+    var user = Parse.User.current();
+
+    var date = document.getElementById('jobDate').value;
+    var name = document.getElementById('jobName').value;
+    var descript = document.getElementById('jobDescript').value;
+
+    user.set("jobDate", date);
+    user.set("jobName", name);
+    user.set("jobDescript", descript);
+
+    window.location.assign('studentprofile.html');
+    user.save(null, {
+    success: function(user) {
+        user.set("jobDate", date);
+        user.set("jobName", name);
+        user.set("jobDescript", descript);
+
+        window.location.assign('jobAnother.html');
+        }
+    });
 }
 
 //For user to log in in index.html
@@ -164,11 +224,19 @@ function loadUser()
 			
 			var aboutMe = user.get('about');
 
+            var jobName = user.get('jobName');
+            var jobDate = user.get('jobDate');
+            var jobDescript = user.get('jobDescript');
+
             document.getElementById('name').innerHTML = fullName;
             document.getElementById('email').innerHTML = email;
             document.getElementById('phone').innerHTML = phone;
             document.getElementById('profilePhoto').src = imageURL;
 			document.getElementById('about').innerHTML = aboutMe;
+
+            document.getElementById('jobName').innerHTML = jobName;
+            document.getElementById('jobDate').innerHTML = jobDate;
+            document.getElementById('jobDescript').innerHTML = jobDescript;
         }, 
         function(error){
              //Handle the error
@@ -196,7 +264,7 @@ function loadEdit()
 
             document.getElementById('firstName').value = firstName;
             document.getElementById('lastName').value = lastName;
-            document.getElementById('email').innerHTML = email;
+            document.getElementById('email').value = email;
             document.getElementById('phone').value = phone;
             document.getElementById('profilePhoto').src = imageURL;
             document.getElementById('about').innerHTML = aboutMe;
@@ -206,6 +274,7 @@ function loadEdit()
              console.log('Fetch Error: ' + error);
         });
 }
+
 
 //For editing profile 
 /* function update()
