@@ -63,6 +63,9 @@
 		},
 		"quickblox": {
 			"version": "0.3"
+		},
+		"geolocation": {
+			"version": "2.0"
 		}
 	}
 }
