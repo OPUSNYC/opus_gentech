@@ -21,7 +21,7 @@ query.find({
 
 			textnode1=document.createTextNode(object.get('type'));
 			textnode2=document.createTextNode(object.get('company'));
-			textnode3=document.createTextNode(object.get('Date'));
+			textnode3=document.createTextNode(object.get('date'));
 			textnode4=document.createTextNode(object.get('pay'));
 			
 			var str = "Apply"
